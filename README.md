@@ -1,2 +1,2 @@
-# Equipe_Teste_CODATA
-Testes de software da CODATA
+# Teste Robot Framework
+Testes de software nos sistemas da Codata utilizando o Robot Framework
