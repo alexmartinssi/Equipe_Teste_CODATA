@@ -1,12 +1,11 @@
 *** Settings ***
 Library	Selenium2Library
+Library  BuiltIn
 Variables  settings.py
 Suite Setup	Go to homepage
-#Suite Teardown	Close All Browsers
+Suite Teardown	Close All Browsers
 
 *** Variables ***
-
-#${HOMEPAGE}	http://prxcodata.pb.gov.br/datagate/
 
 *** Test Cases ***
 #Cadastrar Gerenciar Serviços
@@ -29,12 +28,13 @@ cadastrar_servicos
 listar_servicos
 	Click Element	xpath=//div[@id='menu_index']/a[contains(@href,'/SAVCM/entidades/gerenciarEntidades.jsf')]
 	Wait Until Page Contains    Filtrar por nome
-	Input Text		id=formListaEntidades:listaEntidades:globalFilter    Secretaria de Referencia Homem
-	Get Text 	xpath=//div[text()='Secretaria de Referencia Homem']
-
+	Input Text		id=formListaEntidades:listaEntidades:globalFilter    Centro de Referência da Mulher
+    Wait Until Page Contains Element    xpath=//div[text()='Centro de Referência da Mulher']
 
 Go to homepage
 	Open Browser	${PAGINA}
+	Maximize Browser Window
+	Set Selenium Speed  ${DELAY}
 	Input Text	id=formLogin:usuario	${LOGIN}
 	Input Password	id=formLogin:senha	${SENHA}
 	Click Element	xpath=//select[contains(@id,'formLogin:entidade')]
