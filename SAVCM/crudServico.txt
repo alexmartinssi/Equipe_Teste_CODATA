@@ -3,33 +3,49 @@ Library	Selenium2Library
 Library  BuiltIn
 Variables  settings.py
 Suite Setup	Go to homepage
-Suite Teardown	Close All Browsers
+#Suite Teardown	Close All Browsers
 
 *** Variables ***
 
 *** Test Cases ***
-#Cadastrar Gerenciar Serviços
-	#cadastrar_servicos
-Listar
-	listar_servicos
+#Cadastrar Serviço
+	#cadastrar_servico
+Listar Serviço
+	listar_servico
+Editar Serviço
+    editar_servico
+
 
 *** Keywords ***
 
-cadastrar_servicos
+cadastrar_servico
 	Click Element	xpath=//div[@id='menu_index']/a[contains(@href,'/SAVCM/entidades/gerenciarEntidades.jsf')]
 	Click Element	xpath=//button/span[contains(text(),'Adicionar Serviço')]
 	Wait Until Page Contains    Nome
-	Input Text		id=editaentidade:formularioEntidade:adicao_nome    Secretaria de Referencia do Homem menor e adolescente e mulher.
+	Input Text		id=editaentidade:formularioEntidade:adicao_nome     Centro de Referência da Adolescente
 	Click Element	id=editaentidade:formularioEntidade:adicao_ativo
 	Click Element	xpath=//button[contains(@id,'editaentidade:formularioEntidade')]//span[contains(text(),'Confirmar')]
 	Wait Until Page Contains    Serviço adicionado com sucesso!
 	Click Element	xpath=//div[contains(@class,'botoes')]/input[contains(@value, 'Ok')]
 
-listar_servicos
+listar_servico
 	Click Element	xpath=//div[@id='menu_index']/a[contains(@href,'/SAVCM/entidades/gerenciarEntidades.jsf')]
 	Wait Until Page Contains    Filtrar por nome
-	Input Text		id=formListaEntidades:listaEntidades:globalFilter    Centro de Referência da Mulher
-    Wait Until Page Contains Element    xpath=//div[text()='Centro de Referência da Mulher']
+	Input Text		id=formListaEntidades:listaEntidades:globalFilter    Centro de Referência do Adolescente
+    Wait Until Page Contains Element    xpath=//div[text()='Centro de Referência do Adolescente']
+
+editar_servico
+    Sleep   5
+    Click Button   xpath=//button[contains(@id, 'formListaEntidades:listaEntidades') and contains(@title,'Editar')]
+    Clear Element Text  id=editaentidade:formularioEntidade:nome
+    Input Text  id=editaentidade:formularioEntidade:nome    Centro de Referência da Adolescente
+    Click Element   xpath=//button[contains(@id,'editaentidade:formularioEntidade')]/span[contains(text(),'Confirmar')]
+    Wait Until Page Contains    Serviço alterado com sucesso!
+    Click Element    xpath=//input[contains(@value, 'Ok')]
+    Reload Page
+    Wait Until Page Contains    Filtrar por nome
+	Input Text		id=formListaEntidades:listaEntidades:globalFilter    Centro de Referência da Adolescente
+    Wait Until Page Contains Element    xpath=//div[text()='Centro de Referência da Adolescente']
 
 Go to homepage
 	Open Browser	${PAGINA}
