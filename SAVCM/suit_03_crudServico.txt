@@ -3,7 +3,7 @@ Library	Selenium2Library
 Library  BuiltIn
 Variables  settings.py
 Suite Setup	Go to homepage
-#Suite Teardown	Close All Browsers
+Suite Teardown	Close All Browsers
 
 *** Variables ***
 
@@ -22,7 +22,7 @@ cadastrar_servico
 	Click Element	xpath=//div[@id='menu_index']/a[contains(@href,'/SAVCM/entidades/gerenciarEntidades.jsf')]
 	Click Element	xpath=//button/span[contains(text(),'Adicionar Serviço')]
 	Wait Until Page Contains    Nome
-	Input Text		id=editaentidade:formularioEntidade:adicao_nome     DRCCM
+	Input Text		id=editaentidade:formularioEntidade:adicao_nome     DRA
 	Click Element	id=editaentidade:formularioEntidade:adicao_ativo
 	Click Element	xpath=//button[contains(@id,'editaentidade:formularioEntidade')]//span[contains(text(),'Confirmar')]
 	Wait Until Page Contains    Serviço adicionado com sucesso!
@@ -32,28 +32,28 @@ cadastrar_servico
 listar_servico
 	Click Element	xpath=//div[@id='menu_index']/a[contains(@href,'/SAVCM/entidades/gerenciarEntidades.jsf')]
 	Wait Until Page Contains    Filtrar por nome
-	Input Text		id=formListaEntidades:listaEntidades:globalFilter    DRCCM
-    Wait Until Page Contains Element    xpath=//div[text()='DRCCM']
+	Input Text		id=formListaEntidades:listaEntidades:globalFilter    DRA
+    Wait Until Page Contains Element    xpath=//div[text()='DRA']
 
 editar_servico
     Sleep   5
     Click Button   xpath=//button[contains(@id, 'formListaEntidades:listaEntidades') and contains(@title,'Editar')]
     Clear Element Text  id=editaentidade:formularioEntidade:nome
-    Input Text  id=editaentidade:formularioEntidade:nome    DRCCMA
+    Input Text  id=editaentidade:formularioEntidade:nome    DRAM
     Click Element   xpath=//button[contains(@id,'editaentidade:formularioEntidade')]/span[contains(text(),'Confirmar')]
     Wait Until Page Contains    Serviço alterado com sucesso!
     Click Element    xpath=//input[contains(@value, 'Ok')]
     Reload Page
     Wait Until Page Contains    Filtrar por nome
-	Input Text  id=formListaEntidades:listaEntidades:globalFilter   DRCCMA
-    Wait Until Page Contains Element    xpath=//div[text()='DRCCMA']
+	Input Text  id=formListaEntidades:listaEntidades:globalFilter   DRAM
+    Wait Until Page Contains Element    xpath=//div[text()='DRAM']
 
 Go to homepage
 	Open Browser	${PAGINA}
 	Maximize Browser Window
 	Set Selenium Speed  ${DELAY}
-	Input Text	id=formLogin:usuario	${LOGIN}
-	Input Password	id=formLogin:senha	${SENHA}
+	Input Text	id=formLogin:usuario	${ADMIN_LOGIN}
+	Input Password	id=formLogin:senha	${ADMIN_SENHA}
 	Click Element	xpath=//select[contains(@id,'formLogin:entidade')]
 	Click Element	xpath=//select[contains(@id,'formLogin:entidade')]/option[text()='Secretaria de Estado da Mulher e da Diversidade Humana']
 	Click Element	xpath=//input[contains(@type,'submit') and contains(@value,'Entrar')]
