@@ -19,8 +19,7 @@ LOGIN = 'admin'
 INVALIDA_SENHA = 'abc123_errada'
 
 #Palavras reservadas do Robot Framework
-DELAY = 0.2
+DELAY = 0.1
 
-BOOLEANO = False
 
 
