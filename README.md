@@ -9,6 +9,7 @@ Links para auxiliar no estudo do robot framework:
 	http://rtomac.github.io/robotframework-selenium2library/doc/Selenium2Library.html#Introduction
 	http://robotframework.org/robotframework/#user-guide
 	https://github.com/robotframework/QuickStartGuide/blob/master/QuickStart.rst
+	https://github.com/rtomac/robotframework-selenium2library
 
 
 
