@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20150202 12:57:45.704" generator="Robot 2.8.7 (Python 2.7.6 on linux2)">
-<suite source="/home/alexmartins/Equipe_Portais/Testes/Robot Framework/teste_robot_framework/SAVCM/verificarLoginEPermissaoDeAcesso.txt" id="s1" name="verificarLoginEPermissaoDeAcesso">
+<robot generated="20150209 09:36:57.314" generator="Robot 2.8.7 (Python 2.7.6 on linux2)">
+<suite source="/home/makoby/Equipe_Portais/Teste/Robotframework/teste_robot_framework/SAVCM/suit_01_verificarLoginEPermissaoDeAcesso.txt" id="s1" name="suit 01 verificarLoginEPermissaoDeAcesso">
 <kw type="setup" name="Go to homepage">
 <doc></doc>
 <arguments>
@@ -10,23 +10,23 @@
 <arguments>
 <arg>${PAGINA}</arg>
 </arguments>
-<msg timestamp="20150202 12:57:45.793" level="INFO">Opening browser 'firefox' to base url 'http://prxcodata.pb.gov.br/SAVCM/login.jsf'</msg>
-<status status="PASS" endtime="20150202 12:57:50.983" starttime="20150202 12:57:45.793"></status>
+<msg timestamp="20150209 09:36:57.420" level="INFO">Opening browser 'firefox' to base url 'http://prxcodata.pb.gov.br/SAVCM/login.jsf'</msg>
+<status status="PASS" endtime="20150209 09:37:06.027" starttime="20150209 09:36:57.419"></status>
 </kw>
 <kw type="kw" name="Selenium2Library.Maximize Browser Window">
 <doc>Maximizes current browser window.</doc>
 <arguments>
 </arguments>
-<status status="PASS" endtime="20150202 12:57:50.996" starttime="20150202 12:57:50.984"></status>
+<status status="PASS" endtime="20150209 09:37:06.037" starttime="20150209 09:37:06.028"></status>
 </kw>
 <kw type="kw" name="Selenium2Library.Set Selenium Speed">
 <doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
 <arguments>
 <arg>${DELAY}</arg>
 </arguments>
-<status status="PASS" endtime="20150202 12:57:50.997" starttime="20150202 12:57:50.997"></status>
+<status status="PASS" endtime="20150209 09:37:06.038" starttime="20150209 09:37:06.037"></status>
 </kw>
-<status status="PASS" endtime="20150202 12:57:50.997" starttime="20150202 12:57:45.792"></status>
+<status status="PASS" endtime="20150209 09:37:06.038" starttime="20150209 09:36:57.419"></status>
 </kw>
 <test id="s1-t1" name="Verificar Login e Permissão de Acesso do Perfil Admin">
 <kw type="kw" name="Acesso_Perfil_Admin">
@@ -41,8 +41,8 @@
 <arg>id=formLogin:usuario</arg>
 <arg>${login}</arg>
 </arguments>
-<msg timestamp="20150202 12:57:51.000" level="INFO">Typing text 'admin' into text field 'id=formLogin:usuario'</msg>
-<status status="PASS" endtime="20150202 12:57:51.773" starttime="20150202 12:57:51.000"></status>
+<msg timestamp="20150209 09:37:06.041" level="INFO">Typing text 'admin' into text field 'id=formLogin:usuario'</msg>
+<status status="PASS" endtime="20150209 09:37:08.884" starttime="20150209 09:37:06.040"></status>
 </kw>
 <kw type="kw" name="Selenium2Library.Input Password">
 <doc>Types the given password into text field identified by `locator`.</doc>
@@ -50,90 +50,39 @@
 <arg>id=formLogin:senha</arg>
 <arg>${senha}</arg>
 </arguments>
-<msg timestamp="20150202 12:57:51.774" level="INFO">Typing password into text field 'id=formLogin:senha'</msg>
-<status status="PASS" endtime="20150202 12:57:52.666" starttime="20150202 12:57:51.773"></status>
+<msg timestamp="20150209 09:37:08.885" level="INFO">Typing password into text field 'id=formLogin:senha'</msg>
+<status status="PASS" endtime="20150209 09:37:11.675" starttime="20150209 09:37:08.884"></status>
 </kw>
 <kw type="kw" name="Selenium2Library.Click Element">
 <doc>Click element identified by `locator`.</doc>
 <arguments>
 <arg>xpath=//select[contains(@id,'formLogin:entidade')]</arg>
 </arguments>
-<msg timestamp="20150202 12:57:52.667" level="INFO">Clicking element 'xpath=//select[contains(@id,'formLogin:entidade')]'.</msg>
-<status status="PASS" endtime="20150202 12:57:53.211" starttime="20150202 12:57:52.666"></status>
+<msg timestamp="20150209 09:37:11.676" level="INFO">Clicking element 'xpath=//select[contains(@id,'formLogin:entidade')]'.</msg>
+<status status="PASS" endtime="20150209 09:37:13.606" starttime="20150209 09:37:11.675"></status>
 </kw>
 <kw type="kw" name="Selenium2Library.Click Element">
 <doc>Click element identified by `locator`.</doc>
 <arguments>
 <arg>xpath=//select[contains(@id,'formLogin:entidade')]/option[text()='Secretaria de Estado da Mulher e da Diversidade Humana']</arg>
 </arguments>
-<msg timestamp="20150202 12:57:53.212" level="INFO">Clicking element 'xpath=//select[contains(@id,'formLogin:entidade')]/option[text()='Secretaria de Estado da Mulher e da Diversidade Humana']'.</msg>
-<status status="PASS" endtime="20150202 12:57:53.762" starttime="20150202 12:57:53.212"></status>
-</kw>
-<kw type="kw" name="Selenium2Library.Click Element">
-<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20150209 09:37:13.607" level="INFO">Clicking element 'xpath=//select[contains(@id,'formLogin:entidade')]/option[text()='Secretaria de Estado da Mulher e da Diversidade Humana']'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
 <arguments>
-<arg>xpath=//input[contains(@type,'submit') and contains(@value,'Entrar')]</arg>
 </arguments>
-<msg timestamp="20150202 12:57:53.763" level="INFO">Clicking element 'xpath=//input[contains(@type,'submit') and contains(@value,'Entrar')]'.</msg>
-<status status="PASS" endtime="20150202 12:57:54.691" starttime="20150202 12:57:53.763"></status>
+<msg timestamp="20150209 09:37:15.676" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150209 09:37:15.677" starttime="20150209 09:37:14.520"></status>
 </kw>
-<kw type="kw" name="BuiltIn.Sleep">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>2</arg>
-</arguments>
-<msg timestamp="20150202 12:57:56.693" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" endtime="20150202 12:57:56.693" starttime="20150202 12:57:54.692"></status>
+<msg timestamp="20150209 09:37:15.678" level="FAIL">ValueError: Element locator 'xpath=//select[contains(@id,'formLogin:entidade')]/option[text()='Secretaria de Estado da Mulher e da Diversidade Humana']' did not match any elements.</msg>
+<status status="FAIL" endtime="20150209 09:37:15.678" starttime="20150209 09:37:13.607"></status>
 </kw>
-<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
-<doc>Waits until element specified with `locator` appears on current page.</doc>
-<arguments>
-<arg>xpath=//img[@src='images/bt_vitimas.png']</arg>
-</arguments>
-<status status="PASS" endtime="20150202 12:57:56.902" starttime="20150202 12:57:56.694"></status>
-</kw>
-<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
-<doc>Waits until element specified with `locator` appears on current page.</doc>
-<arguments>
-<arg>xpath=//img[@src='images/bt_gerenciarEntidades.png']</arg>
-</arguments>
-<status status="PASS" endtime="20150202 12:57:57.109" starttime="20150202 12:57:56.903"></status>
-</kw>
-<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
-<doc>Waits until element specified with `locator` appears on current page.</doc>
-<arguments>
-<arg>xpath=//img[@src='images/bt_gerUsuarios.png']</arg>
-</arguments>
-<status status="PASS" endtime="20150202 12:57:57.320" starttime="20150202 12:57:57.110"></status>
-</kw>
-<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
-<doc>Waits until element specified with `locator` appears on current page.</doc>
-<arguments>
-<arg>xpath=//img[@src='images/bt_relatorios.png']</arg>
-</arguments>
-<status status="PASS" endtime="20150202 12:57:57.532" starttime="20150202 12:57:57.320"></status>
-</kw>
-<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
-<doc>Waits until element specified with `locator` appears on current page.</doc>
-<arguments>
-<arg>xpath=//img[@src='images/bt_opcoes.png']</arg>
-</arguments>
-<status status="PASS" endtime="20150202 12:57:57.744" starttime="20150202 12:57:57.532"></status>
-</kw>
-<kw type="kw" name="Selenium2Library.Click Link">
-<doc>Clicks a link identified by locator.</doc>
-<arguments>
-<arg>xpath=//a[text()='Sair do Sistema']</arg>
-</arguments>
-<msg timestamp="20150202 12:57:57.745" level="INFO">Clicking link 'xpath=//a[text()='Sair do Sistema']'.</msg>
-<status status="PASS" endtime="20150202 12:57:58.732" starttime="20150202 12:57:57.744"></status>
-</kw>
-<status status="PASS" endtime="20150202 12:57:58.733" starttime="20150202 12:57:50.999"></status>
+<status status="FAIL" endtime="20150209 09:37:15.679" starttime="20150209 09:37:06.039"></status>
 </kw>
 <doc></doc>
 <tags>
 </tags>
-<status status="PASS" endtime="20150202 12:57:58.734" critical="yes" starttime="20150202 12:57:50.998"></status>
+<status status="FAIL" endtime="20150209 09:37:15.680" critical="yes" starttime="20150209 09:37:06.038">ValueError: Element locator 'xpath=//select[contains(@id,'formLogin:entidade')]/option[text()='Secretaria de Estado da Mulher e da Diversidade Humana']' did not match any elements.</status>
 </test>
 <test id="s1-t2" name="Verificar Login e Permissão de Acesso do Perfil Gestor">
 <kw type="kw" name="Acesso_Perfil_Gestor">
@@ -148,8 +97,8 @@
 <arg>id=formLogin:usuario</arg>
 <arg>${login}</arg>
 </arguments>
-<msg timestamp="20150202 12:57:58.738" level="INFO">Typing text 'gestor' into text field 'id=formLogin:usuario'</msg>
-<status status="PASS" endtime="20150202 12:57:59.450" starttime="20150202 12:57:58.737"></status>
+<msg timestamp="20150209 09:37:15.684" level="INFO">Typing text 'gestor' into text field 'id=formLogin:usuario'</msg>
+<status status="PASS" endtime="20150209 09:37:18.468" starttime="20150209 09:37:15.684"></status>
 </kw>
 <kw type="kw" name="Selenium2Library.Input Password">
 <doc>Types the given password into text field identified by `locator`.</doc>
@@ -157,91 +106,39 @@
 <arg>id=formLogin:senha</arg>
 <arg>${senha}</arg>
 </arguments>
-<msg timestamp="20150202 12:57:59.452" level="INFO">Typing password into text field 'id=formLogin:senha'</msg>
-<status status="PASS" endtime="20150202 12:58:00.138" starttime="20150202 12:57:59.451"></status>
+<msg timestamp="20150209 09:37:18.470" level="INFO">Typing password into text field 'id=formLogin:senha'</msg>
+<status status="PASS" endtime="20150209 09:37:21.268" starttime="20150209 09:37:18.469"></status>
 </kw>
 <kw type="kw" name="Selenium2Library.Click Element">
 <doc>Click element identified by `locator`.</doc>
 <arguments>
 <arg>xpath=//select[contains(@id,'formLogin:entidade')]</arg>
 </arguments>
-<msg timestamp="20150202 12:58:00.139" level="INFO">Clicking element 'xpath=//select[contains(@id,'formLogin:entidade')]'.</msg>
-<status status="PASS" endtime="20150202 12:58:00.670" starttime="20150202 12:58:00.139"></status>
+<msg timestamp="20150209 09:37:21.270" level="INFO">Clicking element 'xpath=//select[contains(@id,'formLogin:entidade')]'.</msg>
+<status status="PASS" endtime="20150209 09:37:23.181" starttime="20150209 09:37:21.269"></status>
 </kw>
 <kw type="kw" name="Selenium2Library.Click Element">
 <doc>Click element identified by `locator`.</doc>
 <arguments>
 <arg>xpath=//select[contains(@id,'formLogin:entidade')]/option[text()='Secretaria de Estado da Mulher e da Diversidade Humana']</arg>
 </arguments>
-<msg timestamp="20150202 12:58:00.671" level="INFO">Clicking element 'xpath=//select[contains(@id,'formLogin:entidade')]/option[text()='Secretaria de Estado da Mulher e da Diversidade Humana']'.</msg>
-<status status="PASS" endtime="20150202 12:58:01.229" starttime="20150202 12:58:00.671"></status>
-</kw>
-<kw type="kw" name="Selenium2Library.Click Element">
-<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20150209 09:37:23.182" level="INFO">Clicking element 'xpath=//select[contains(@id,'formLogin:entidade')]/option[text()='Secretaria de Estado da Mulher e da Diversidade Humana']'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
 <arguments>
-<arg>xpath=//input[contains(@type,'submit') and contains(@value,'Entrar')]</arg>
 </arguments>
-<msg timestamp="20150202 12:58:01.230" level="INFO">Clicking element 'xpath=//input[contains(@type,'submit') and contains(@value,'Entrar')]'.</msg>
-<status status="PASS" endtime="20150202 12:58:02.037" starttime="20150202 12:58:01.229"></status>
+<msg timestamp="20150209 09:37:25.226" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150209 09:37:25.227" starttime="20150209 09:37:24.095"></status>
 </kw>
-<kw type="kw" name="BuiltIn.Sleep">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>2</arg>
-</arguments>
-<msg timestamp="20150202 12:58:04.039" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" endtime="20150202 12:58:04.040" starttime="20150202 12:58:02.038"></status>
+<msg timestamp="20150209 09:37:25.227" level="FAIL">ValueError: Element locator 'xpath=//select[contains(@id,'formLogin:entidade')]/option[text()='Secretaria de Estado da Mulher e da Diversidade Humana']' did not match any elements.</msg>
+<status status="FAIL" endtime="20150209 09:37:25.228" starttime="20150209 09:37:23.182"></status>
 </kw>
-<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
-<doc>Waits until element specified with `locator` appears on current page.</doc>
-<arguments>
-<arg>xpath=//img[@src='images/bt_vitimas.png']</arg>
-</arguments>
-<status status="PASS" endtime="20150202 12:58:04.254" starttime="20150202 12:58:04.040"></status>
-</kw>
-<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
-<doc>Waits until element specified with `locator` appears on current page.</doc>
-<arguments>
-<arg>xpath=//img[@src='images/bt_gerenciarEntidades.png']</arg>
-</arguments>
-<status status="PASS" endtime="20150202 12:58:04.464" starttime="20150202 12:58:04.254"></status>
-</kw>
-<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
-<doc>Waits until element specified with `locator` appears on current page.</doc>
-<arguments>
-<arg>xpath=//img[@src='images/bt_gerUsuarios.png']</arg>
-</arguments>
-<status status="PASS" endtime="20150202 12:58:04.677" starttime="20150202 12:58:04.465"></status>
-</kw>
-<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
-<doc>Waits until element specified with `locator` appears on current page.</doc>
-<arguments>
-<arg>xpath=//img[@src='images/bt_relatorios.png']</arg>
-</arguments>
-<status status="PASS" endtime="20150202 12:58:04.886" starttime="20150202 12:58:04.677"></status>
-</kw>
-<kw type="kw" name="Selenium2Library.Page Should Not Contain Element">
-<doc>Verifies element identified by `locator` is not found on the current page.</doc>
-<arguments>
-<arg>xpath=//img[@src='images/bt_opcoes.png']</arg>
-</arguments>
-<msg timestamp="20150202 12:58:05.094" level="INFO">Current page does not contain element 'xpath=//img[@src='images/bt_opcoes.png']'.</msg>
-<status status="PASS" endtime="20150202 12:58:05.094" starttime="20150202 12:58:04.887"></status>
-</kw>
-<kw type="kw" name="Selenium2Library.Click Link">
-<doc>Clicks a link identified by locator.</doc>
-<arguments>
-<arg>xpath=//a[text()='Sair do Sistema']</arg>
-</arguments>
-<msg timestamp="20150202 12:58:05.095" level="INFO">Clicking link 'xpath=//a[text()='Sair do Sistema']'.</msg>
-<status status="PASS" endtime="20150202 12:58:06.063" starttime="20150202 12:58:05.095"></status>
-</kw>
-<status status="PASS" endtime="20150202 12:58:06.064" starttime="20150202 12:57:58.736"></status>
+<status status="FAIL" endtime="20150209 09:37:25.228" starttime="20150209 09:37:15.682"></status>
 </kw>
 <doc></doc>
 <tags>
 </tags>
-<status status="PASS" endtime="20150202 12:58:06.064" critical="yes" starttime="20150202 12:57:58.734"></status>
+<status status="FAIL" endtime="20150209 09:37:25.229" critical="yes" starttime="20150209 09:37:15.680">ValueError: Element locator 'xpath=//select[contains(@id,'formLogin:entidade')]/option[text()='Secretaria de Estado da Mulher e da Diversidade Humana']' did not match any elements.</status>
 </test>
 <test id="s1-t3" name="Verificar Login e Permissão de Acesso do Perfil Usuário">
 <kw type="kw" name="Acesso_Perfil_Usuario">
@@ -256,8 +153,8 @@
 <arg>id=formLogin:usuario</arg>
 <arg>${login}</arg>
 </arguments>
-<msg timestamp="20150202 12:58:06.069" level="INFO">Typing text 'usuario' into text field 'id=formLogin:usuario'</msg>
-<status status="PASS" endtime="20150202 12:58:06.769" starttime="20150202 12:58:06.068"></status>
+<msg timestamp="20150209 09:37:25.233" level="INFO">Typing text 'usuario' into text field 'id=formLogin:usuario'</msg>
+<status status="PASS" endtime="20150209 09:37:28.029" starttime="20150209 09:37:25.233"></status>
 </kw>
 <kw type="kw" name="Selenium2Library.Input Password">
 <doc>Types the given password into text field identified by `locator`.</doc>
@@ -265,115 +162,172 @@
 <arg>id=formLogin:senha</arg>
 <arg>${senha}</arg>
 </arguments>
-<msg timestamp="20150202 12:58:06.770" level="INFO">Typing password into text field 'id=formLogin:senha'</msg>
-<status status="PASS" endtime="20150202 12:58:07.469" starttime="20150202 12:58:06.769"></status>
+<msg timestamp="20150209 09:37:28.030" level="INFO">Typing password into text field 'id=formLogin:senha'</msg>
+<status status="PASS" endtime="20150209 09:37:30.825" starttime="20150209 09:37:28.030"></status>
 </kw>
 <kw type="kw" name="Selenium2Library.Click Element">
 <doc>Click element identified by `locator`.</doc>
 <arguments>
 <arg>xpath=//select[contains(@id,'formLogin:entidade')]</arg>
 </arguments>
-<msg timestamp="20150202 12:58:07.470" level="INFO">Clicking element 'xpath=//select[contains(@id,'formLogin:entidade')]'.</msg>
-<status status="PASS" endtime="20150202 12:58:07.977" starttime="20150202 12:58:07.470"></status>
+<msg timestamp="20150209 09:37:30.826" level="INFO">Clicking element 'xpath=//select[contains(@id,'formLogin:entidade')]'.</msg>
+<status status="PASS" endtime="20150209 09:37:32.734" starttime="20150209 09:37:30.826"></status>
 </kw>
 <kw type="kw" name="Selenium2Library.Click Element">
 <doc>Click element identified by `locator`.</doc>
 <arguments>
 <arg>xpath=//select[contains(@id,'formLogin:entidade')]/option[text()='Secretaria de Estado da Mulher e da Diversidade Humana']</arg>
 </arguments>
-<msg timestamp="20150202 12:58:07.978" level="INFO">Clicking element 'xpath=//select[contains(@id,'formLogin:entidade')]/option[text()='Secretaria de Estado da Mulher e da Diversidade Humana']'.</msg>
-<status status="PASS" endtime="20150202 12:58:08.538" starttime="20150202 12:58:07.977"></status>
-</kw>
-<kw type="kw" name="Selenium2Library.Click Element">
-<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20150209 09:37:32.735" level="INFO">Clicking element 'xpath=//select[contains(@id,'formLogin:entidade')]/option[text()='Secretaria de Estado da Mulher e da Diversidade Humana']'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
 <arguments>
-<arg>xpath=//input[contains(@type,'submit') and contains(@value,'Entrar')]</arg>
 </arguments>
-<msg timestamp="20150202 12:58:08.539" level="INFO">Clicking element 'xpath=//input[contains(@type,'submit') and contains(@value,'Entrar')]'.</msg>
-<status status="PASS" endtime="20150202 12:58:09.382" starttime="20150202 12:58:08.538"></status>
+<msg timestamp="20150209 09:37:34.784" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150209 09:37:34.784" starttime="20150209 09:37:33.647"></status>
 </kw>
-<kw type="kw" name="BuiltIn.Sleep">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>2</arg>
-</arguments>
-<msg timestamp="20150202 12:58:11.383" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" endtime="20150202 12:58:11.384" starttime="20150202 12:58:09.382"></status>
+<msg timestamp="20150209 09:37:34.785" level="FAIL">ValueError: Element locator 'xpath=//select[contains(@id,'formLogin:entidade')]/option[text()='Secretaria de Estado da Mulher e da Diversidade Humana']' did not match any elements.</msg>
+<status status="FAIL" endtime="20150209 09:37:34.785" starttime="20150209 09:37:32.734"></status>
 </kw>
-<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
-<doc>Waits until element specified with `locator` appears on current page.</doc>
-<arguments>
-<arg>xpath=//img[@src='images/bt_vitimas.png']</arg>
-</arguments>
-<status status="PASS" endtime="20150202 12:58:11.595" starttime="20150202 12:58:11.384"></status>
-</kw>
-<kw type="kw" name="Selenium2Library.Page Should Not Contain Element">
-<doc>Verifies element identified by `locator` is not found on the current page.</doc>
-<arguments>
-<arg>xpath=//img[@src='images/bt_gerenciarEntidades.png']</arg>
-</arguments>
-<msg timestamp="20150202 12:58:11.807" level="INFO">Current page does not contain element 'xpath=//img[@src='images/bt_gerenciarEntidades.png']'.</msg>
-<status status="PASS" endtime="20150202 12:58:11.807" starttime="20150202 12:58:11.596"></status>
-</kw>
-<kw type="kw" name="Selenium2Library.Page Should Not Contain Element">
-<doc>Verifies element identified by `locator` is not found on the current page.</doc>
-<arguments>
-<arg>xpath=//img[@src='images/bt_gerUsuarios.png']</arg>
-</arguments>
-<msg timestamp="20150202 12:58:12.020" level="INFO">Current page does not contain element 'xpath=//img[@src='images/bt_gerUsuarios.png']'.</msg>
-<status status="PASS" endtime="20150202 12:58:12.020" starttime="20150202 12:58:11.807"></status>
-</kw>
-<kw type="kw" name="Selenium2Library.Page Should Not Contain Element">
-<doc>Verifies element identified by `locator` is not found on the current page.</doc>
-<arguments>
-<arg>xpath=//img[@src='images/bt_relatorios.png']</arg>
-</arguments>
-<msg timestamp="20150202 12:58:12.234" level="INFO">Current page does not contain element 'xpath=//img[@src='images/bt_relatorios.png']'.</msg>
-<status status="PASS" endtime="20150202 12:58:12.234" starttime="20150202 12:58:12.021"></status>
-</kw>
-<kw type="kw" name="Selenium2Library.Page Should Not Contain Element">
-<doc>Verifies element identified by `locator` is not found on the current page.</doc>
-<arguments>
-<arg>xpath=//img[@src='images/bt_opcoes.png']</arg>
-</arguments>
-<msg timestamp="20150202 12:58:12.445" level="INFO">Current page does not contain element 'xpath=//img[@src='images/bt_opcoes.png']'.</msg>
-<status status="PASS" endtime="20150202 12:58:12.445" starttime="20150202 12:58:12.235"></status>
-</kw>
-<kw type="kw" name="Selenium2Library.Click Link">
-<doc>Clicks a link identified by locator.</doc>
-<arguments>
-<arg>xpath=//a[text()='Sair do Sistema']</arg>
-</arguments>
-<msg timestamp="20150202 12:58:12.446" level="INFO">Clicking link 'xpath=//a[text()='Sair do Sistema']'.</msg>
-<status status="PASS" endtime="20150202 12:58:13.373" starttime="20150202 12:58:12.446"></status>
-</kw>
-<status status="PASS" endtime="20150202 12:58:13.374" starttime="20150202 12:58:06.066"></status>
+<status status="FAIL" endtime="20150209 09:37:34.786" starttime="20150209 09:37:25.231"></status>
 </kw>
 <doc></doc>
 <tags>
 </tags>
-<status status="PASS" endtime="20150202 12:58:13.374" critical="yes" starttime="20150202 12:58:06.065"></status>
+<status status="FAIL" endtime="20150209 09:37:34.786" critical="yes" starttime="20150209 09:37:25.229">ValueError: Element locator 'xpath=//select[contains(@id,'formLogin:entidade')]/option[text()='Secretaria de Estado da Mulher e da Diversidade Humana']' did not match any elements.</status>
+</test>
+<test id="s1-t4" name="Verificar Login">
+<kw type="kw" name="Acesso_Login_Invalido">
+<doc></doc>
+<arguments>
+<arg>${INVALIDO_LOGIN}</arg>
+<arg>${SENHA}</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Input Text">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=formLogin:usuario</arg>
+<arg>${login}</arg>
+</arguments>
+<msg timestamp="20150209 09:37:34.790" level="INFO">Typing text 'admin_errado' into text field 'id=formLogin:usuario'</msg>
+<status status="PASS" endtime="20150209 09:37:37.593" starttime="20150209 09:37:34.789"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Input Password">
+<doc>Types the given password into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=formLogin:senha</arg>
+<arg>${senha}</arg>
+</arguments>
+<msg timestamp="20150209 09:37:37.595" level="INFO">Typing password into text field 'id=formLogin:senha'</msg>
+<status status="PASS" endtime="20150209 09:37:40.387" starttime="20150209 09:37:37.594"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//select[contains(@id,'formLogin:entidade')]</arg>
+</arguments>
+<msg timestamp="20150209 09:37:40.388" level="INFO">Clicking element 'xpath=//select[contains(@id,'formLogin:entidade')]'.</msg>
+<status status="PASS" endtime="20150209 09:37:42.291" starttime="20150209 09:37:40.388"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//select[contains(@id,'formLogin:entidade')]/option[text()='Secretaria de Estado da Mulher e da Diversidade Humana']</arg>
+</arguments>
+<msg timestamp="20150209 09:37:42.292" level="INFO">Clicking element 'xpath=//select[contains(@id,'formLogin:entidade')]/option[text()='Secretaria de Estado da Mulher e da Diversidade Humana']'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150209 09:37:44.332" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150209 09:37:44.332" starttime="20150209 09:37:43.203"></status>
+</kw>
+<msg timestamp="20150209 09:37:44.333" level="FAIL">ValueError: Element locator 'xpath=//select[contains(@id,'formLogin:entidade')]/option[text()='Secretaria de Estado da Mulher e da Diversidade Humana']' did not match any elements.</msg>
+<status status="FAIL" endtime="20150209 09:37:44.333" starttime="20150209 09:37:42.291"></status>
+</kw>
+<status status="FAIL" endtime="20150209 09:37:44.334" starttime="20150209 09:37:34.788"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150209 09:37:44.334" critical="yes" starttime="20150209 09:37:34.787">ValueError: Element locator 'xpath=//select[contains(@id,'formLogin:entidade')]/option[text()='Secretaria de Estado da Mulher e da Diversidade Humana']' did not match any elements.</status>
+</test>
+<test id="s1-t5" name="Verificar Senha">
+<kw type="kw" name="Acesso_Senha_Invalida">
+<doc></doc>
+<arguments>
+<arg>${LOGIN}</arg>
+<arg>${INVALIDA_SENHA}</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Input Text">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=formLogin:usuario</arg>
+<arg>${login}</arg>
+</arguments>
+<msg timestamp="20150209 09:37:44.340" level="INFO">Typing text 'admin' into text field 'id=formLogin:usuario'</msg>
+<status status="PASS" endtime="20150209 09:37:47.131" starttime="20150209 09:37:44.339"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Input Password">
+<doc>Types the given password into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=formLogin:senha</arg>
+<arg>${senha}</arg>
+</arguments>
+<msg timestamp="20150209 09:37:47.133" level="INFO">Typing password into text field 'id=formLogin:senha'</msg>
+<status status="PASS" endtime="20150209 09:37:49.916" starttime="20150209 09:37:47.132"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//select[contains(@id,'formLogin:entidade')]</arg>
+</arguments>
+<msg timestamp="20150209 09:37:49.918" level="INFO">Clicking element 'xpath=//select[contains(@id,'formLogin:entidade')]'.</msg>
+<status status="PASS" endtime="20150209 09:37:51.812" starttime="20150209 09:37:49.917"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//select[contains(@id,'formLogin:entidade')]/option[text()='Secretaria de Estado da Mulher e da Diversidade Humana']</arg>
+</arguments>
+<msg timestamp="20150209 09:37:51.813" level="INFO">Clicking element 'xpath=//select[contains(@id,'formLogin:entidade')]/option[text()='Secretaria de Estado da Mulher e da Diversidade Humana']'.</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20150209 09:37:53.853" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20150209 09:37:53.854" starttime="20150209 09:37:52.724"></status>
+</kw>
+<msg timestamp="20150209 09:37:53.854" level="FAIL">ValueError: Element locator 'xpath=//select[contains(@id,'formLogin:entidade')]/option[text()='Secretaria de Estado da Mulher e da Diversidade Humana']' did not match any elements.</msg>
+<status status="FAIL" endtime="20150209 09:37:53.854" starttime="20150209 09:37:51.813"></status>
+</kw>
+<status status="FAIL" endtime="20150209 09:37:53.855" starttime="20150209 09:37:44.337"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20150209 09:37:53.855" critical="yes" starttime="20150209 09:37:44.335">ValueError: Element locator 'xpath=//select[contains(@id,'formLogin:entidade')]/option[text()='Secretaria de Estado da Mulher e da Diversidade Humana']' did not match any elements.</status>
 </test>
 <kw type="teardown" name="Selenium2Library.Close All Browsers">
 <doc>Closes all open browsers and resets the browser cache.</doc>
 <arguments>
 </arguments>
-<status status="PASS" endtime="20150202 12:58:13.608" starttime="20150202 12:58:13.377"></status>
+<status status="PASS" endtime="20150209 09:37:54.790" starttime="20150209 09:37:53.857"></status>
 </kw>
 <doc></doc>
 <metadata>
 </metadata>
-<status status="PASS" endtime="20150202 12:58:13.608" starttime="20150202 12:57:45.704"></status>
+<status status="FAIL" endtime="20150209 09:37:54.790" starttime="20150209 09:36:57.315"></status>
 </suite>
 <statistics>
 <total>
-<stat fail="0" pass="3">Critical Tests</stat>
-<stat fail="0" pass="3">All Tests</stat>
+<stat fail="5" pass="0">Critical Tests</stat>
+<stat fail="5" pass="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat fail="0" pass="3" id="s1" name="verificarLoginEPermissaoDeAcesso">verificarLoginEPermissaoDeAcesso</stat>
+<stat fail="5" pass="0" id="s1" name="suit 01 verificarLoginEPermissaoDeAcesso">suit 01 verificarLoginEPermissaoDeAcesso</stat>
 </suite>
 </statistics>
 <errors>

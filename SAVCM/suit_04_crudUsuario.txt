@@ -1,0 +1,140 @@
+*** Settings ***
+Library	Selenium2Library
+Library  BuiltIn
+Variables  settings.py
+Suite Setup	Go to homepage
+Suite Teardown	Close All Browsers
+
+*** Variables ***
+
+*** Test Cases ***
+Crud de Usuário com o perfil Admin
+    Cadastrar_Usuario_Pelo_Admin  ${ADMIN_LOGIN}  ${ADMIN_SENHA}
+    Alterar_Usuario_Pelo_Admin
+    Excluir_Usuario_Pelo_Admin
+
+Cadastrar Tipo de Usuário com o perfil Admin
+    Cadastrar_Usuario_Admin_Pelo_Admin
+    Cadastrar_Usuario_Gestor_Pelo_Admin
+    Cadastrar_Usuario_Comum_Pelo_Admin
+
+Cadastrar Usuário já existente
+    Cadastrar_Usuario_Existente_Pelo_Admin
+
+Cadastrar Usuário com tipo diferente
+    Cadastrar_Usuario_Com_Tipo_Diferente_Pelo_Admin
+
+Crud de Usuário com o perfil Gestor
+    Cadastrar_Usuario_Pelo_Gestor  ${ADMIN_LOGIN}  ${ADMIN_SENHA}
+    Alterar_Usuario_Pelo_Gestor
+    Excluir_Usuario_Pelo_Gestor
+
+Cadastrar Tipo de Usuário com o perfil Gestor
+    Cadastrar_Usuario_Admin_Pelo_Gestor
+    Cadastrar_Usuario_Gestor_Pelo_Gestor
+    Cadastrar_Usuario_Comum_Pelo_Gestor
+
+Cadastrar Usuário já existente
+    Cadastrar_Usuario_Existente_Pelo_Gestor
+
+Cadastrar Usuário com tipo diferente
+    Cadastrar_Usuario_Com_Tipo_Diferente_Pelo_Gestor
+
+Cadastrar Usuário com o Perfil Usuário Comum
+    Sem_Permissao_de_Cadastrar_Usuario_Pelo_Usuario_Comum
+
+*** Keywords ***
+Cadastrar_Usuario_Pelo_Admin
+    [Arguments]	${login}	${senha}
+	Input Text  id=formLogin:usuario	${login}
+	Input Password	id=formLogin:senha	${senha}
+	Click Element	xpath=//select[contains(@id,'formLogin:entidade')]
+	Click Element	xpath=//select[contains(@id,'formLogin:entidade')]/option[text()='Secretaria de Estado da Mulher e da Diversidade Humana']
+	Click Element	xpath=//input[contains(@type,'submit') and contains(@value,'Entrar')]
+	Sleep   2
+	Wait Until Page Contains Element    xpath=//img[@src='images/bt_gerUsuarios.png']
+
+Alterar_Usuario_Pelo_Admin
+
+
+Excluir_Usuario_Pelo_Admin
+
+
+Cadastrar_Usuario_Admin_Pelo_Admin
+
+
+Cadastrar_Usuario_Gestor_Pelo_Admin
+
+
+Cadastrar_Usuario_Comum_Pelo_Admin
+
+
+Cadastrar_Usuario_Existente_Pelo_Admin
+
+
+Cadastrar_Usuario_Com_Tipo_Diferente_Pelo_Admin
+    Click Link  xpath=//a[text()='Sair do Sistema']
+
+
+Cadastrar_Usuario_Pelo_Gestor
+
+
+Alterar_Usuario_Pelo_Gestor
+
+
+Excluir_Usuario_Pelo_Gestor
+
+
+Cadastrar_Usuario_Admin_Pelo_Gestor
+
+
+Cadastrar_Usuario_Gestor_Pelo_Gestor
+
+
+Cadastrar_Usuario_Comum_Pelo_Gestor
+
+
+Cadastrar_Usuario_Existente_Pelo_Gestor
+
+
+Cadastrar_Usuario_Com_Tipo_Diferente_Pelo_Gestor
+
+    Click Link  xpath=//a[text()='Sair do Sistema']
+Sem_Permissao_de_Cadastrar_Usuario_Pelo_Usuario_Comum
+    Click Link  xpath=//a[text()='Sair do Sistema']
+
+Acesso_Perfil_Gestor
+    [Arguments]	${login}	${senha}
+	Input Text  id=formLogin:usuario	${login}
+	Input Password	id=formLogin:senha	${senha}
+	Click Element	xpath=//select[contains(@id,'formLogin:entidade')]
+	Click Element	xpath=//select[contains(@id,'formLogin:entidade')]/option[text()='Secretaria de Estado da Mulher e da Diversidade Humana']
+	Click Element	xpath=//input[contains(@type,'submit') and contains(@value,'Entrar')]
+	Sleep   2
+	Wait Until Page Contains Element    xpath=//img[@src='images/bt_vitimas.png']
+	Wait Until Page Contains Element    xpath=//img[@src='images/bt_gerenciarEntidades.png']
+	Wait Until Page Contains Element    xpath=//img[@src='images/bt_gerUsuarios.png']
+	Wait Until Page Contains Element    xpath=//img[@src='images/bt_relatorios.png']
+	Page Should Not Contain Element    xpath=//img[@src='images/bt_opcoes.png']
+	Click Link  xpath=//a[text()='Sair do Sistema']
+
+Acesso_Perfil_Usuario
+    [Arguments]	${login}	${senha}
+	Input Text  id=formLogin:usuario	${login}
+	Input Password	id=formLogin:senha	${senha}
+	Click Element	xpath=//select[contains(@id,'formLogin:entidade')]
+	Click Element	xpath=//select[contains(@id,'formLogin:entidade')]/option[text()='Secretaria de Estado da Mulher e da Diversidade Humana']
+	Sleep   2
+	Click Element	xpath=//input[contains(@value,'Entrar')]
+	Wait Until Page Contains Element    xpath=//img[@src='images/bt_vitimas.png']
+	Page Should Not Contain Element    xpath=//img[@src='images/bt_gerenciarEntidades.png']
+
+	Page Should Not Contain Element  xpath=//img[@src='images/bt_relatorios.png']
+	Page Should Not Contain Element    xpath=//img[@src='images/bt_opcoes.png']
+	Click Link  xpath=//a[text()='Sair do Sistema']
+
+
+Go to homepage
+	Open Browser	${PAGINA}
+	Maximize Browser Window
+	Set Selenium Speed  ${DELAY}
