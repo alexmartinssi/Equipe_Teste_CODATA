@@ -16,18 +16,17 @@ Cad_Vitima_Perfil_Admin
     [Arguments]  	${login}	${senha}
 	Input Text      id=formLogin:usuario	${login}
 	Input Password	id=formLogin:senha	${senha}
-	Click Element	xpath=//select[contains(@id,'formLogin:entidade')]
-	Click Element	xpath=//select[contains(@id,'formLogin:entidade')]/option[text()='Secretaria de Estado da Mulher e da Diversidade Humana']
-	Click Element	xpath=//input[contains(@type,'submit') and contains(@value,'Entrar')]
-	Sleep   3
-	Click Element	xpath=//img[@src='images/bt_vitimas.png']
-    Click Element   xpath=//button/span[text()='Adicionar Vítima']
-    Sleep   3
-    Click Link      xpath=//a[text()='Identificação']
-    Sleep   3
-    Input Text      id=formCadastroVitimas:secoesDadosVitimas:vitNome   Maria
-    Sleep   5
-    Click Element   xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[1]/td[2]/input
+	Select From List 	xpath=//select[contains(@id,'formLogin:entidade')]  Secretaria de Estado da Mulher e da Diversidade Humana
+#	Click Element	xpath=//input[contains(@type,'submit') and contains(@value,'Entrar')]
+#	Sleep   3
+#	Click Element	xpath=//img[@src='images/bt_vitimas.png']
+#    Click Element   xpath=//button/span[text()='Adicionar Vítima']
+#    Sleep   3
+#    Click Link      xpath=//a[text()='Identificação']
+#    Sleep   3
+#    Input Text      id=formCadastroVitimas:secoesDadosVitimas:vitNome   Maria
+#    Sleep   5
+#    Click Element   xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[1]/td[2]/input
 #    Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[2]/td[2]/input   4187578
 #    Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[2]/td[2]/input   4187578
 #    Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[2]/td[2]/input   4187578
@@ -41,7 +40,7 @@ Cad_Vitima_Perfil_Admin
 #    Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[2]/td[2]/input   4187578
 #    Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[2]/td[2]/input   4187578
 #    Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[2]/td[2]/input   4187578
-	Click Link      xpath=//a[text()='Sair do Sistema']
+#	Click Link      xpath=//a[text()='Sair do Sistema']
 
 Go to homepage
 	Open Browser	${PAGINA}

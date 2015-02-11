@@ -48,8 +48,7 @@ Cadastrar_Usuario_Pelo_Admin
     [Arguments]	${login}	${senha}
 	Input Text  id=formLogin:usuario	${login}
 	Input Password	id=formLogin:senha	${senha}
-	Click Element	xpath=//select[contains(@id,'formLogin:entidade')]
-	Click Element	xpath=//select[contains(@id,'formLogin:entidade')]/option[text()='Secretaria de Estado da Mulher e da Diversidade Humana']
+    Select From List 	xpath=//select[contains(@id,'formLogin:entidade')]  Secretaria de Estado da Mulher e da Diversidade Humana
 	Click Element	xpath=//input[contains(@type,'submit') and contains(@value,'Entrar')]
 	Sleep   2
 	Wait Until Page Contains Element    xpath=//img[@src='images/bt_gerUsuarios.png']
@@ -107,8 +106,7 @@ Acesso_Perfil_Gestor
     [Arguments]	${login}	${senha}
 	Input Text  id=formLogin:usuario	${login}
 	Input Password	id=formLogin:senha	${senha}
-	Click Element	xpath=//select[contains(@id,'formLogin:entidade')]
-	Click Element	xpath=//select[contains(@id,'formLogin:entidade')]/option[text()='Secretaria de Estado da Mulher e da Diversidade Humana']
+    Select From List 	xpath=//select[contains(@id,'formLogin:entidade')]  Secretaria de Estado da Mulher e da Diversidade Humana
 	Click Element	xpath=//input[contains(@type,'submit') and contains(@value,'Entrar')]
 	Sleep   2
 	Wait Until Page Contains Element    xpath=//img[@src='images/bt_vitimas.png']
@@ -122,8 +120,7 @@ Acesso_Perfil_Usuario
     [Arguments]	${login}	${senha}
 	Input Text  id=formLogin:usuario	${login}
 	Input Password	id=formLogin:senha	${senha}
-	Click Element	xpath=//select[contains(@id,'formLogin:entidade')]
-	Click Element	xpath=//select[contains(@id,'formLogin:entidade')]/option[text()='Secretaria de Estado da Mulher e da Diversidade Humana']
+    Select From List 	xpath=//select[contains(@id,'formLogin:entidade')]  Secretaria de Estado da Mulher e da Diversidade Humana
 	Sleep   2
 	Click Element	xpath=//input[contains(@value,'Entrar')]
 	Wait Until Page Contains Element    xpath=//img[@src='images/bt_vitimas.png']

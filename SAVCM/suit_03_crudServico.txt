@@ -54,6 +54,5 @@ Go to homepage
 	Set Selenium Speed  ${DELAY}
 	Input Text	id=formLogin:usuario	${ADMIN_LOGIN}
 	Input Password	id=formLogin:senha	${ADMIN_SENHA}
-	Click Element	xpath=//select[contains(@id,'formLogin:entidade')]
-	Click Element	xpath=//select[contains(@id,'formLogin:entidade')]/option[text()='Secretaria de Estado da Mulher e da Diversidade Humana']
+    Select From List 	xpath=//select[contains(@id,'formLogin:entidade')]  Secretaria de Estado da Mulher e da Diversidade Humana
 	Click Element	xpath=//input[contains(@type,'submit') and contains(@value,'Entrar')]
