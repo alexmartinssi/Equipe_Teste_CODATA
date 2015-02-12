@@ -41,7 +41,8 @@ Cad_Vitima_Perfil_Admin
     #Mãe
     Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[3]/td[4]/input   Maria do Socorro
     #Estado Civil
-#    Click Element   xpath=//table[@id='formCadastroVitimas:secoesDadosVitimas:j_idt68']/tbody/tr[4]/td[2]/div/div/select/option[text()='Solteira']
+    Select From List   xpath=//div[@id='formCadastroVitimas:secoesDadosVitimas:j_idt99']/div/select  Solteira
+#   Click Element   xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[4]/td[2]/div/div/select/option[text()='Solteira']
 #    Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[2]/td[2]/input   4187578
 #    Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[2]/td[2]/input   4187578
 #    Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[2]/td[2]/input   4187578
