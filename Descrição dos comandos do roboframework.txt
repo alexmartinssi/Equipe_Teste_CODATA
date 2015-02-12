@@ -1,0 +1,30 @@
+input text  id=formLogin:usuario	${login} coloque o valor do atributo entre chaves no campo text id=formlogin=usuario
+
+Input Password	id=formLogin:senha	${senha}
+
+Sleep   2 espere 2 segundos
+
+Wait Until Page Contains Element    xpath=//img[@src='images/bt_vitimas.png'] verifica se a pagina contem o elemento indicado no xpath
+
+Click Link  xpath=//a[text()='Sair do Sistema'] clique no link indicado no xpath
+
+Click Button   xpath=//button[contains(@id, 'formListaEntidades:listaEntidades') and contains(@title,'Editar')] clica no botão indicado pelo xpath
+
+Click Element	xpath=//select[contains(@id,'formLogin:entidade')]/option[text()='Secretaria'] clique no elemento indicado pelo xpath
+
+Page Should Not Contain Element    xpath=//img[@src='images/bt_opcoes.png'] verifica se a pagina nao contem o elemento indicado no xpath
+
+Open Browser	${PAGINA}  abri a pagina definida pelo atributo PAGINA
+
+Maximize Browser Window maximiza a pagina
+
+Set Selenium Speed  ${DELAY}  define a velocidade para andamento do robo
+
+Reload Page recarrega a pagina
+
+
+
+
+
+
+
