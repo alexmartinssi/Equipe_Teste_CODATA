@@ -22,35 +22,85 @@ Cad_Vitima_Perfil_Admin
 	Click Element	xpath=//img[@src='images/bt_vitimas.png']
     Click Element   xpath=//button/span[text()='Adicionar Vítima']
     Sleep   3
-    Click Link      xpath=//a[text()='Identificação']
-    Sleep   3
-    #Nome
-    Input Text      id=formCadastroVitimas:secoesDadosVitimas:vitNome   Maria
-    Sleep   5
-    #Selecionando a data de nascimento
-    Click Element   xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[1]/td/span/input
-    Click Element   xpath=//div[contains(@id,'ui-datepicker-div')]/div/div/select/option[text()='Mai']
-    Click Element   xpath=//div[contains(@id,'ui-datepicker-div')]/div/div/select/option[text()='1989']
-    Click Element   xpath=//div[contains(@id,'ui-datepicker-div')]/table/tbody/tr/td/a[text()='7']
-    #RG
-    Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[2]/td[2]/input   403289440
-    #CPF
-    Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[2]/td[4]/input   212.540.373-06
-    #Pai
-    Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[3]/td[2]/input   José Inácio
-    #Mãe
-    Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[3]/td[4]/input   Maria do Socorro
-    #Estado Civil
-    Select From List   xpath=//div[@id='formCadastroVitimas:secoesDadosVitimas:j_idt99']/div/select  Solteira
-#   Click Element   xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[4]/td[2]/div/div/select/option[text()='Solteira']
-#    Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[2]/td[2]/input   4187578
-#    Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[2]/td[2]/input   4187578
-#    Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[2]/td[2]/input   4187578
-#    Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[2]/td[2]/input   4187578
-#    Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[2]/td[2]/input   4187578
-#    Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[2]/td[2]/input   4187578
-#    Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[2]/td[2]/input   4187578
-#    Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[2]/td[2]/input   4187578
+
+#    #ABA IDENTIFICAÇÃO
+#    Click Link      xpath=//a[text()='Identificação']
+#    Sleep   3
+#    #Nome
+#    Input Text      id=formCadastroVitimas:secoesDadosVitimas:vitNome   Maria
+#    Sleep   5
+#    #Selecionando a data de nascimento
+#    Click Element   xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[1]/td/span/input
+#    Click Element   xpath=//div[contains(@id,'ui-datepicker-div')]/div/div/select/option[text()='Mai']
+#    Click Element   xpath=//div[contains(@id,'ui-datepicker-div')]/div/div/select/option[text()='1989']
+#    Click Element   xpath=//div[contains(@id,'ui-datepicker-div')]/table/tbody/tr/td/a[text()='7']
+#    #RG
+#    Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[2]/td[2]/input   403289440
+#    #CPF
+#    Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[2]/td[4]/input   212.540.373-06
+#    #Pai
+#    Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[3]/td[2]/input   José Inácio
+#    #Mãe
+#    Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[3]/td[4]/input   Maria do Socorro
+#    #Estado Civil
+#    Click Element   xpath=//label[contains(@id,'formCadastroVitimas:secoesDadosVitimas:j_idt99_label')]
+#    Click Element   xpath=//div[@id='formCadastroVitimas:secoesDadosVitimas:j_idt99_panel']/div/ul/li[text()='Solteira']
+#    #Sexo
+#    Click Element   xpath=//label[contains(@id,'formCadastroVitimas:secoesDadosVitimas:j_idt105_label')]
+#    Click Element   xpath=//div[@id='formCadastroVitimas:secoesDadosVitimas:j_idt105_panel']/div/ul/li[text()='Feminino']
+#    #Escolaridade
+#    Click Element   xpath=//label[contains(@id,'formCadastroVitimas:secoesDadosVitimas:j_idt112_label')]
+#    Click Element   xpath=//div[@id='formCadastroVitimas:secoesDadosVitimas:j_idt112_panel']/div/ul/li[text()='Médio Completo']
+#    #Ocupação
+#    Click Element   xpath=//label[contains(@id,'formCadastroVitimas:secoesDadosVitimas:j_idt118_label')]
+#    Click Element   xpath=//div[@id='formCadastroVitimas:secoesDadosVitimas:j_idt118_panel']/div/ul/li[text()='Funcionária Pública']
+#    #Cor/Raça
+#    Click Element   xpath=//label[contains(@id,'formCadastroVitimas:secoesDadosVitimas:j_idt125_label')]
+#    Click Element   xpath=//div[@id='formCadastroVitimas:secoesDadosVitimas:j_idt125_panel']/div/ul/li[text()='Negra']
+#    #Orientação Sexual
+#    Click Element   xpath=//label[contains(@id,'formCadastroVitimas:secoesDadosVitimas:j_idt131_label')]
+#    Click Element   xpath=//div[@id='formCadastroVitimas:secoesDadosVitimas:j_idt131_panel']/div/ul/li[text()='Heterossexual']
+#    #Email
+#    Input Text     xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[7]/td[2]/input    maria@teste.pb.gov.br
+#    #Tipo de Domicílio
+#    Click Element   xpath=//label[contains(@id,'formCadastroVitimas:secoesDadosVitimas:j_idt142_label')]
+#    Click Element   xpath=//div[@id='formCadastroVitimas:secoesDadosVitimas:j_idt142_panel']/div/ul/li[text()='Apartamento']
+#    #Telefone
+#    Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[8]/td[2]/input   8388888888
+#    #Situação da Moradia
+#    Click Element   xpath=//label[contains(@id,'formCadastroVitimas:secoesDadosVitimas:j_idt153_label')]
+#    Click Element   xpath=//div[@id='formCadastroVitimas:secoesDadosVitimas:j_idt153_panel']/div/ul/li[text()='Própria']
+#    #Celular
+#    Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[9]/td[2]/input   8399999999
+#    #Pessoas na Residência
+#    Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[9]/td[4]/span/input   5
+#    Sleep   3
+
+
+    #ABA ENDEREÇO
+    Click Link      xpath=//a[text()='Endereço']
+#    Run Keyword If  xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[1]/td[text()='Epitácio Pessoa]' == 'Epitácio Pessoa'
+#    #Logradouro
+#    Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[1]/td[2]/span/input   Epitácio Pessoa
+##    #Situação da Moradia
+#    Click Element   xpath=//label[contains(@id,'formCadastroVitimas:secoesDadosVitimas:j_idt153_label')]
+#    Click Element   xpath=//div[@id='formCadastroVitimas:secoesDadosVitimas:j_idt153_panel']/div/ul/li[text()='Própria']
+#    #Pessoas na Internet
+#    Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[9]/td[4]/span/input   5
+#    #Situação da Moradia
+#    Click Element   xpath=//label[contains(@id,'formCadastroVitimas:secoesDadosVitimas:j_idt153_label')]
+#    Click Element   xpath=//div[@id='formCadastroVitimas:secoesDadosVitimas:j_idt153_panel']/div/ul/li[text()='Própria']
+#    #Pessoas na Internet
+#    Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[9]/td[4]/span/input   5
+#    #Pessoas na Internet
+#    Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[9]/td[4]/span/input   5
+#    #Pessoas na Internet
+#    Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[9]/td[4]/span/input   5
+
+
+
+
+
 #	Click Link      xpath=//a[text()='Sair do Sistema']
 
 Go to homepage
