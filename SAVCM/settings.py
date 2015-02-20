@@ -3,8 +3,8 @@
 PAGINA = 'http://prxcodata.pb.gov.br/SAVCM/login.jsf'
 
 #Login e senha por perfil de usuario
-ADMIN_LOGIN = 'admin'
-ADMIN_SENHA = 'abc123'
+ADMIN_LOGIN = 'makoby'
+ADMIN_SENHA = 'makoby'
 
 GESTOR_LOGIN = 'gestor'
 GESTOR_SENHA = 'abc123'
@@ -18,8 +18,9 @@ SENHA = 'abc123'
 LOGIN = 'admin'
 INVALIDA_SENHA = 'abc123_errada'
 
+
 #Palavras reservadas do Robot Framework
-DELAY = 0.1
+DELAY = 0.2
 
 
 

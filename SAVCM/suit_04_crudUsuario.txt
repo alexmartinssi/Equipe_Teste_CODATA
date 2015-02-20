@@ -10,8 +10,9 @@ Suite Setup	Go to homepage
 *** Test Cases ***
 Crud de Usuário com o perfil Admin
 #    Cadastrar_Usuario_Pelo_Admin  ${ADMIN_LOGIN}  ${ADMIN_SENHA}
-#    Alterar_Usuario_Pelo_Admin  ${ADMIN_LOGIN}  ${ADMIN_SENHA}
-    Excluir_Usuario_Pelo_Admin   ${ADMIN_LOGIN}  ${ADMIN_SENHA}
+    [Documentation]  Esse teste verifica o  alterar usuário utilizando o perfil admin
+    Alterar_Usuario_Pelo_Admin  ${ADMIN_LOGIN}  ${ADMIN_SENHA}
+#    Excluir_Usuario_Pelo_Admin   ${ADMIN_LOGIN}  ${ADMIN_SENHA}
 
 #Cadastrar Tipo de Usuário com o perfil Admin
 #    Cadastrar_Usuario_Admin_Pelo_Admin
@@ -97,11 +98,14 @@ Excluir_Usuario_Pelo_Admin
 	Sleep   2
 	Wait Until Page Contains Element    xpath=//img[@src='images/bt_gerUsuarios.png']
 	Click Element  xpath=//img[@src='images/bt_gerUsuarios.png']
-    Input Text  xpath=//input[@id='formListaUsuarios:listaUsuarios:globalFilter']    Makoby Lindo
+    Input Text  xpath=//input[@id='formListaUsuarios:listaUsuarios:globalFilter']    Makoby3
     Sleep  3
     Click Element    xpath=//button[contains(@id,'formListaUsuarios:listaUsuarios')and contains(@title,'Remover')]
     Wait Until Page Contains Element  xpath=//span[text()='Deletar']
     Click Element  xpath=//button[contains(@id,'formListaUsuarios')]/span[text()='Sim']
+    Sleep   2
+    Wait Until Page Contains  Não foram encontrados registros
+
 
 Cadastrar_Usuario_Admin_Pelo_Admin
 
