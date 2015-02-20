@@ -9,6 +9,7 @@ Suite Setup	Go to homepage
 
 *** Test Cases ***
 Cadastrar Vítima pelo Perfil Admin
+    [Documentation]     Esse Teste verifica o cadastro de vítima realizado pelo perfil admin.
     Cad_Vitima_Perfil_Admin  ${ADMIN_LOGIN}  ${ADMIN_SENHA}
 
 *** Keywords ***
@@ -77,25 +78,42 @@ Cad_Vitima_Perfil_Admin
 #    Sleep   3
 
 
-    #ABA ENDEREÇO
-    Click Link      xpath=//a[text()='Endereço']
-#    Run Keyword If  xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[1]/td[text()='Epitácio Pessoa]' == 'Epitácio Pessoa'
+#    #ABA ENDEREÇO
+#    Click Link      xpath=//a[text()='Endereço']
 #    #Logradouro
-#    Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[1]/td[2]/span/input   Epitácio Pessoa
-##    #Situação da Moradia
-#    Click Element   xpath=//label[contains(@id,'formCadastroVitimas:secoesDadosVitimas:j_idt153_label')]
-#    Click Element   xpath=//div[@id='formCadastroVitimas:secoesDadosVitimas:j_idt153_panel']/div/ul/li[text()='Própria']
-#    #Pessoas na Internet
-#    Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[9]/td[4]/span/input   5
-#    #Situação da Moradia
-#    Click Element   xpath=//label[contains(@id,'formCadastroVitimas:secoesDadosVitimas:j_idt153_label')]
-#    Click Element   xpath=//div[@id='formCadastroVitimas:secoesDadosVitimas:j_idt153_panel']/div/ul/li[text()='Própria']
-#    #Pessoas na Internet
-#    Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[9]/td[4]/span/input   5
-#    #Pessoas na Internet
-#    Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[9]/td[4]/span/input   5
-#    #Pessoas na Internet
-#    Input Text      xpath=//table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[9]/td[4]/span/input   5
+#    Input Text      xpath=//div[2]/table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[1]/td[2]/input   Av. Epitácio Pessoa
+#    #Estado
+#    Click Element   xpath=//label[contains(@id,'formCadastroVitimas:secoesDadosVitimas:selectEstado2_label')]
+#    Click Element   xpath=//div[@id='formCadastroVitimas:secoesDadosVitimas:selectEstado2_panel']/div/ul/li[text()='ALAGOAS']
+#    #Bairro
+#    Input Text      xpath=//div[2]/table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[2]/td[2]/input   Miramar
+#    #Cidade
+##    Click Element   xpath=//label[contains(@id,'formCadastroVitimas:secoesDadosVitimas:j_idt153_label')]
+##    Click Element   xpath=//div[@id='formCadastroVitimas:secoesDadosVitimas:j_idt153_panel']/div/ul/li[text()='Própria']
+#    #Complemento
+#    Input Text      xpath=//div[2]/table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[3]/td[2]/input   Casa
+##    #Número
+#    Input Text      xpath=//div[2]/table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[4]/td[2]/input   98
+#    #Cep
+#    Input Text      xpath=//div[2]/table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[5]/td[2]/input   78994000
+
+
+    #ABA SITUAÇÃO ECONÔMICA
+    Click Link      xpath=//a[text()='Situação Econômica']
+    #Remuneração Individual
+    Click Element   xpath=//div[3]/table/tbody/tr[1]/td[2]//label
+    Click Element   xpath=//div[@id='formCadastroVitimas:secoesDadosVitimas:j_idt209_panel']/div/ul/li[text()='De 1 a 3 salários mínimos']
+    #Remuneração Familiar
+    Click Element   xpath=//div[3]/table/tbody/tr[2]/td[2]//label
+    Click Element   xpath=//div[@id='formCadastroVitimas:secoesDadosVitimas:j_idt216_panel']/div/ul/li[text()='Menos que 1 salário mínimo']
+    #Situação Econômica
+    Click Element   xpath=//div[3]/table/tbody/tr[3]/td[2]//label
+    Click Element   xpath=//div[@id='formCadastroVitimas:secoesDadosVitimas:j_idt223_panel']/div/ul/li[text()='Ativa']
+    #Programas Sociais
+    Click Element   xpath=//table[@id='formCadastroVitimas:secoesDadosVitimas:programasSociais']/tbody/tr[1]/td[1]/div/div[2]
+#   Select Checkbox      xpath=//div[2]/table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[3]/td[2]/input   Casa
+#   Select Checkbox     xpath=//div[2]/table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[4]/td[2]/input   98
+#   Select Checkbox      xpath=//div[2]/table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[5]/td[2]/input   78994000
 
 
 
@@ -106,94 +124,3 @@ Cad_Vitima_Perfil_Admin
 Go to homepage
 	Open Browser	${PAGINA}
 	Set Selenium Speed  ${DELAY}
-
-
-
-#        driver.find_element_by_id("formCadastroVitimas:secoesDadosVitimas:j_idt90").send_keys(u"José")
-#        driver.find_element_by_id("formCadastroVitimas:secoesDadosVitimas:j_idt99_label").click()
-#        driver.find_element_by_xpath("//div[@id='formCadastroVitimas:secoesDadosVitimas:j_idt99_panel']/div/ul/li[2]").click()
-#        driver.find_element_by_id("formCadastroVitimas:secoesDadosVitimas:j_idt112_label").click()
-#        driver.find_element_by_xpath("//div[@id='formCadastroVitimas:secoesDadosVitimas:j_idt112_panel']/div/ul/li[6]").click()
-#        driver.find_element_by_id("formCadastroVitimas:secoesDadosVitimas:j_idt125_label").click()
-#        driver.find_element_by_xpath("//div[@id='formCadastroVitimas:secoesDadosVitimas:j_idt125_panel']/div/ul/li[2]").click()
-#        driver.find_element_by_id("formCadastroVitimas:secoesDadosVitimas:j_idt138").clear()
-#        driver.find_element_by_id("formCadastroVitimas:secoesDadosVitimas:j_idt138").send_keys("maria@gmail.com")
-#        driver.find_element_by_id("formCadastroVitimas:secoesDadosVitimas:j_idt76_input").click()
-#        driver.find_element_by_xpath("//div[@id='ui-datepicker-div']/table/tbody/tr[2]/td[1]").click()
-#        driver.find_element_by_id("formCadastroVitimas:secoesDadosVitimas:j_idt85").clear()
-#        driver.find_element_by_id("formCadastroVitimas:secoesDadosVitimas:j_idt85").send_keys("467.749.613-71")
-#        driver.find_element_by_id("formCadastroVitimas:secoesDadosVitimas:j_idt94").clear()
-#        driver.find_element_by_id("formCadastroVitimas:secoesDadosVitimas:j_idt94").send_keys("Socorro")
-#        driver.find_element_by_xpath("//div[@id='formCadastroVitimas:secoesDadosVitimas:j_idt105']/div[2]/span").click()
-#        driver.find_element_by_xpath("//div[@id='formCadastroVitimas:secoesDadosVitimas:j_idt105_panel']/div/ul/li[2]").click()
-#        driver.find_element_by_id("formCadastroVitimas:secoesDadosVitimas:j_idt118_label").click()
-#        driver.find_element_by_xpath("//div[@id='formCadastroVitimas:secoesDadosVitimas:j_idt118_panel']/div/ul/li[2]").click()
-#        driver.find_element_by_id("formCadastroVitimas:secoesDadosVitimas:j_idt131_label").click()
-#        driver.find_element_by_xpath("//div[@id='formCadastroVitimas:secoesDadosVitimas:j_idt131_panel']/div/ul/li[2]").click()
-#        driver.find_element_by_id("formCadastroVitimas:secoesDadosVitimas:j_idt142_label").click()
-#        driver.find_element_by_xpath("//div[@id='formCadastroVitimas:secoesDadosVitimas:j_idt142_panel']/div/ul/li[2]").click()
-#        driver.find_element_by_id("formCadastroVitimas:secoesDadosVitimas:j_idt153_label").click()
-#        driver.find_element_by_xpath("//div[@id='formCadastroVitimas:secoesDadosVitimas:j_idt153_panel']/div/ul/li[2]").click()
-#        driver.find_element_by_link_text(u"Endereço").click()
-#        driver.find_element_by_id("formCadastroVitimas:secoesDadosVitimas:j_idt171").clear()
-#        driver.find_element_by_id("formCadastroVitimas:secoesDadosVitimas:j_idt171").send_keys("Rua Gecy")
-#        driver.find_element_by_id("formCadastroVitimas:secoesDadosVitimas:j_idt181").clear()
-#        driver.find_element_by_id("formCadastroVitimas:secoesDadosVitimas:j_idt181").send_keys("Mangabeira")
-#        driver.find_element_by_id("formCadastroVitimas:secoesDadosVitimas:j_idt191").clear()
-#        driver.find_element_by_id("formCadastroVitimas:secoesDadosVitimas:j_idt191").send_keys("casa")
-#        driver.find_element_by_id("formCadastroVitimas:secoesDadosVitimas:j_idt196").clear()
-#        driver.find_element_by_id("formCadastroVitimas:secoesDadosVitimas:j_idt196").send_keys("77")
-#        driver.find_element_by_id("formCadastroVitimas:secoesDadosVitimas:j_idt201").clear()
-#        driver.find_element_by_id("formCadastroVitimas:secoesDadosVitimas:j_idt201").send_keys("13500-000")
-#        driver.find_element_by_id("formCadastroVitimas:secoesDadosVitimas:selectEstado2_label").click()
-#        driver.find_element_by_xpath("//div[@id='formCadastroVitimas:secoesDadosVitimas:selectEstado2_panel']/div/ul/li[contains(text(),\"PARAIBA\")]").click()
-#        driver.find_element_by_link_text(u"Situação Econômica").click()
-#        driver.find_element_by_id("formCadastroVitimas:secoesDadosVitimas:j_idt209_label").click()
-#        driver.find_element_by_xpath("//div[@id='formCadastroVitimas:secoesDadosVitimas:j_idt209_panel']/div/ul/li[3]").click()
-#        driver.find_element_by_id("formCadastroVitimas:secoesDadosVitimas:j_idt216_label").click()
-#        driver.find_element_by_xpath("//div[@id='formCadastroVitimas:secoesDadosVitimas:j_idt216_panel']/div/ul/li[4]").click()
-#        driver.find_element_by_id("formCadastroVitimas:secoesDadosVitimas:j_idt223_label").click()
-#        driver.find_element_by_xpath("//div[@id='formCadastroVitimas:secoesDadosVitimas:j_idt223_panel']/div/ul/li[2]").click()
-#        driver.find_element_by_link_text(u"Família").click()
-#        driver.find_element_by_link_text(u"Referência").click()
-#        driver.find_element_by_id("formCadastroVitimas:secoesDadosVitimas:dtReferencias:j_idt249").click()
-#        driver.find_element_by_id("formReferencia:refNome").clear()
-#        driver.find_element_by_id("formReferencia:refNome").send_keys(u"José")
-#        driver.find_element_by_id("formReferencia:refGrauRelacionamenoto").clear()
-#        driver.find_element_by_id("formReferencia:refGrauRelacionamenoto").send_keys("Pai")
-#        driver.find_element_by_id("formReferencia:refTelefoneCelular").clear()
-#        driver.find_element_by_id("formReferencia:refTelefoneCelular").send_keys("(88) 8888-8888")
-#        driver.find_element_by_id("formReferencia:j_idt695").click()
-#        driver.find_element_by_link_text(u"Histórico de Ocorrências").click()
-#        driver.find_element_by_xpath("//button[starts-with(@id,'formCadastroVitimas:secoesDadosVitimas:dtOcorrencias:j_')]").click()
-#        driver.find_element_by_link_text("Dados do agressor").click()
-#        driver.find_element_by_id("formCadastraOcorrencia:secoesDadosOcorrencia_:j_idt300").clear()
-#        driver.find_element_by_id("formCadastraOcorrencia:secoesDadosOcorrencia_:j_idt300").send_keys("Desconhecido")
-#        driver.find_element_by_id("formCadastraOcorrencia:secoesDadosOcorrencia_:j_idt302_label").click()
-#        driver.find_element_by_xpath("//div[@id='formCadastraOcorrencia:secoesDadosOcorrencia_:j_idt302_panel']/div/ul/li[2]").click()
-#        driver.find_element_by_xpath(u"(//a[contains(text(),'Dados da Agressão')])[2]").click()
-#        driver.find_element_by_id("formCadastraOcorrencia:secoesDadosOcorrencia_:data_ocorrencia_input").click()
-#        driver.find_element_by_link_text("7").click()
-#        driver.find_element_by_xpath("(//button[@type='button'])[16]").click()
-#        driver.find_element_by_xpath("//table[@id='formCadastraOcorrencia:secoesDadosOcorrencia_:tiposDeViolencia']/tbody/tr/td/div/div[2]").click()
-#        driver.find_element_by_xpath("(//a[contains(text(),'Local')])[2]").click()
-#        driver.find_element_by_id("formCadastraOcorrencia:secoesDadosOcorrencia_:LocalOcorrencia_label").click()
-#        driver.find_element_by_xpath("//div[@id='formCadastraOcorrencia:secoesDadosOcorrencia_:LocalOcorrencia_panel']/div/ul/li[7]").click()
-#        driver.find_element_by_id("formCadastraOcorrencia:secoesDadosOcorrencia_:selectEstado_label").click()
-#        driver.find_element_by_xpath("//div[@id='formCadastraOcorrencia:secoesDadosOcorrencia_:selectEstado_panel']/div/ul/li[16]").click()
-#        driver.find_element_by_xpath("(//a[contains(text(),'Relato')])[2]").click()
-#        driver.find_element_by_id("formCadastraOcorrencia:secoesDadosOcorrencia_:j_idt338").clear()
-#        driver.find_element_by_id("formCadastraOcorrencia:secoesDadosOcorrencia_:j_idt338").send_keys(u"Agrediu a vítima e realizou furto.")
-#        driver.find_element_by_xpath("(//a[contains(text(),'Encaminhamentos')])[2]").click()
-#        driver.find_element_by_xpath("//button[starts-with(@id,'formCadastraOcorrencia:secoesDadosOcorrencia_:dtEncaminhamentos:')]").click()
-#        driver.find_element_by_id("j_idt352:j_idt354_label").click()
-#        driver.find_element_by_xpath("//div[@id='j_idt352:j_idt354_panel']/div/ul/li[2]").click()
-#        driver.find_element_by_id("j_idt352:j_idt359").click()
-#        driver.find_element_by_xpath("(//a[contains(text(),'Encaminhamentos')])[2]").click()
-#        driver.find_element_by_xpath("//button[starts-with(@id,'formCadastraOcorrencia:j')]").click()
-#        driver.find_element_by_link_text(u"Histórico de Ocorrências").click()
-#        driver.find_element_by_link_text(u"Informações do Atendimento").click()
-#        driver.find_element_by_xpath("//textarea[starts-with(@id,'formCadastroVitimas:secoesDadosVitimas:infoAtendimento_')]").clear()
-#        driver.find_element_by_xpath("//textarea[starts-with(@id,'formCadastroVitimas:secoesDadosVitimas:infoAtendimento_')]").send_keys(u"A vítima informou que sofreu agressão e roubo.")
-#        driver.find_element_by_xpath("//button[starts-with(@id,'formCadastroVitimas:j')]/span[contains(text(),'Confirmar')]").click()
-#        self.assertEqual(u"Maria", driver.find_element_by_xpath("//tbody[contains(@id,'dtDetalheVit_data')] /tr/td/div[contains(text(),'Maria')]").text)
