@@ -1,12 +1,12 @@
-*** Settings ***
+** Settings ***
 Library	Selenium2Library
 Library  BuiltIn
 Variables  settings.py
 Suite Setup	Go to homepage
 #Suite Teardown	Close All Browsers
 
-*** Variables ***
 
+*** Variables ***
 *** Test Cases ***
 Cadastrar Vítima pelo Perfil Admin
     [Documentation]     Esse Teste verifica o cadastro de vítima realizado pelo perfil admin.
@@ -98,23 +98,33 @@ Cad_Vitima_Perfil_Admin
 #    Input Text      xpath=//div[2]/table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[5]/td[2]/input   78994000
 
 
-    #ABA SITUAÇÃO ECONÔMICA
-    Click Link      xpath=//a[text()='Situação Econômica']
-    #Remuneração Individual
-    Click Element   xpath=//div[3]/table/tbody/tr[1]/td[2]//label
-    Click Element   xpath=//div[@id='formCadastroVitimas:secoesDadosVitimas:j_idt209_panel']/div/ul/li[text()='De 1 a 3 salários mínimos']
-    #Remuneração Familiar
-    Click Element   xpath=//div[3]/table/tbody/tr[2]/td[2]//label
-    Click Element   xpath=//div[@id='formCadastroVitimas:secoesDadosVitimas:j_idt216_panel']/div/ul/li[text()='Menos que 1 salário mínimo']
-    #Situação Econômica
-    Click Element   xpath=//div[3]/table/tbody/tr[3]/td[2]//label
-    Click Element   xpath=//div[@id='formCadastroVitimas:secoesDadosVitimas:j_idt223_panel']/div/ul/li[text()='Ativa']
-    #Programas Sociais
-    Click Element   xpath=//table[@id='formCadastroVitimas:secoesDadosVitimas:programasSociais']/tbody/tr[1]/td[1]/div/div[2]
-#   Select Checkbox      xpath=//div[2]/table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[3]/td[2]/input   Casa
-#   Select Checkbox     xpath=//div[2]/table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[4]/td[2]/input   98
-#   Select Checkbox      xpath=//div[2]/table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[5]/td[2]/input   78994000
+#    #ABA SITUAÇÃO ECONÔMICA
+#    Click Link      xpath=//a[text()='Situação Econômica']
+#    #Remuneração Individual
+#    Click Element   xpath=//div[3]/table/tbody/tr[1]/td[2]//label
+#    Click Element   xpath=//div[@id='formCadastroVitimas:secoesDadosVitimas:j_idt209_panel']/div/ul/li[text()='De 1 a 3 salários mínimos']
+#    #Remuneração Familiar
+#    Click Element   xpath=//div[3]/table/tbody/tr[2]/td[2]//label
+#    Click Element   xpath=//div[@id='formCadastroVitimas:secoesDadosVitimas:j_idt216_panel']/div/ul/li[text()='Menos que 1 salário mínimo']
+#    #Situação Econômica
+#    Click Element   xpath=//div[3]/table/tbody/tr[3]/td[2]//label
+#    Click Element   xpath=//div[@id='formCadastroVitimas:secoesDadosVitimas:j_idt223_panel']/div/ul/li[text()='Ativa']
+#    #Programas Sociais
+#    Click Element   xpath=//table[@id='formCadastroVitimas:secoesDadosVitimas:programasSociais']/tbody/tr[1]/td[1]/div/div[2]
+##   Select Checkbox      xpath=//div[2]/table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[3]/td[2]/input   Casa
+##   Select Checkbox     xpath=//div[2]/table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[4]/td[2]/input   98
+##   Select Checkbox      xpath=//div[2]/table[contains(@id,'formCadastroVitimas:secoesDadosVitimas')]/tbody/tr[5]/td[2]/input   78994000
 
+
+    #ABA SITUAÇÃO ECONÔMICA
+    Click Link      xpath=//a[text()='Família']
+    Click Element   xpath=//button[contains(@id,'formCadastroVitimas:secoesDadosVitimas:dtFamiliares')]/span[text()='Adicionar Familiar']
+    Input Text      xpath=//table[contains(@id,'camposFamiliar')]/tbody/tr[1]/td[2]/input   Jose Mario
+    Input Text      xpath=//table[contains(@id,'camposFamiliar')]/tbody/tr[2]/td[2]/input   45
+    Click Element   xpath=//table[contains(@id,'camposFamiliar')]/tbody/tr[3]//label
+    Click Element   xpath=//div[@id='j_idt285:j_idt291_panel']/div/ul/li[text()='Pai']
+    Click Element   xpath=//button[@id='j_idt285:j_idt293' and contains(@alt,'Confirmar')]
+    Wait Until Page Contains    Jose Mario
 
 
 
