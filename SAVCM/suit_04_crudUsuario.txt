@@ -8,35 +8,44 @@ Suite Setup	Go to homepage
 *** Variables ***
 
 *** Test Cases ***
-Crud de Usuário com o perfil Admin
-#    Cadastrar_Usuario_Pelo_Admin  ${ADMIN_LOGIN}  ${ADMIN_SENHA}
-    [Documentation]  Esse teste verifica o  alterar usuário utilizando o perfil admin
-    Alterar_Usuario_Pelo_Admin  ${ADMIN_LOGIN}  ${ADMIN_SENHA}
-#    Excluir_Usuario_Pelo_Admin   ${ADMIN_LOGIN}  ${ADMIN_SENHA}
+#Acessar Perfil
+#    Acesso_Perfil_Admin  ${ADMIN_LOGIN}  ${ADMIN_SENHA}
+#    Acesso_Perfil_Gestor  ${GESTOR_LOGIN}  ${GESTOR_SENHA}
+#    Acesso_Perfil_Usuario  ${USUARIO_LOGIN}  ${USUARIO_SENHA}
+
+
+
+
+#Crud de Usuário com o perfil Admin
+#    [Documentation]  exemplo de documentação
+#   Cadastrar_Usuario_Pelo_Admin  ${ADMIN_LOGIN}  ${ADMIN_SENHA}
+#   Alterar_Usuario_Pelo_Admin  #${ADMIN_LOGIN}  ${ADMIN_SENHA}
+#   Excluir_Usuario_Pelo_Admin   #${ADMIN_LOGIN}  ${ADMIN_SENHA}
 
 #Cadastrar Tipo de Usuário com o perfil Admin
-#    Cadastrar_Usuario_Admin_Pelo_Admin
-#    Cadastrar_Usuario_Gestor_Pelo_Admin
-#    Cadastrar_Usuario_Comum_Pelo_Admin
+#    Cadastrar_Usuario_Admin_Pelo_Admin  ${ADMIN_LOGIN}  ${ADMIN_SENHA}
+#    Cadastrar_Usuario_Gestor_Pelo_Admin  ${ADMIN_LOGIN}  ${ADMIN_SENHA}
+#    Cadastrar_Usuario_Comum_Pelo_Admin   ${ADMIN_LOGIN}  ${ADMIN_SENHA}
 #
 #Cadastrar Usuário já existente
-#    Cadastrar_Usuario_Existente_Pelo_Admin
+#    Cadastrar_Usuario_Existente_Pelo_Admin  ${ADMIN_LOGIN}  ${ADMIN_SENHA}
 #
 #Cadastrar Usuário com tipo diferente
 #    Cadastrar_Usuario_Com_Tipo_Diferente_Pelo_Admin
 #
 #Crud de Usuário com o perfil Gestor
-#    Cadastrar_Usuario_Pelo_Gestor  ${ADMIN_LOGIN}  ${ADMIN_SENHA}
-#    Alterar_Usuario_Pelo_Gestor
-#    Excluir_Usuario_Pelo_Gestor
+#    [Documentation]  exemplo de documentação
+#    Cadastrar_Usuario_Pelo_Gestor  ${GESTOR_LOGIN}  ${GESTOR_SENHA}
+#    Alterar_Usuario_Pelo_Gestor  #${GESTOR_LOGIN}  ${GESTOR_SENHA}
+#    Excluir_Usuario_Pelo_Gestor  #${GESTOR_LOGIN}  ${GESTOR_SENHA}
 #
-#Cadastrar Tipo de Usuário com o perfil Gestor
-#    Cadastrar_Usuario_Admin_Pelo_Gestor
-#    Cadastrar_Usuario_Gestor_Pelo_Gestor
-#    Cadastrar_Usuario_Comum_Pelo_Gestor
+Cadastrar Tipo de Usuário com o perfil Gestor
+    Cadastrar_Usuario_Admin_Pelo_Gestor  ${GESTOR_LOGIN}  ${GESTOR_SENHA}
+#    Cadastrar_Usuario_Gestor_Pelo_Gestor  ${GESTOR_LOGIN}  ${GESTOR_SENHA}
+#    Cadastrar_Usuario_Comum_Pelo_Gestor$  {GESTOR_LOGIN}  ${GESTOR_SENHA}
 #
 #Cadastrar Usuário já existente
-#    Cadastrar_Usuario_Existente_Pelo_Gestor
+#    Cadastrar_Usuario_Existente_Pelo_Gestor  ${GESTOR_LOGIN}  ${GESTOR_SENHA}
 #
 #Cadastrar Usuário com tipo diferente
 #    Cadastrar_Usuario_Com_Tipo_Diferente_Pelo_Gestor
@@ -46,6 +55,7 @@ Crud de Usuário com o perfil Admin
 
 *** Keywords ***
 Cadastrar_Usuario_Pelo_Admin
+
     [Arguments]	${login}	${senha}
 	Input Text  id=formLogin:usuario	${login}
 	Input Password	id=formLogin:senha	${senha}
@@ -56,99 +66,384 @@ Cadastrar_Usuario_Pelo_Admin
 	Click Element  xpath=//img[@src='images/bt_gerUsuarios.png']
     Click Element  xpath=//button[contains(@id,'formListaUsuarios:listaUsuarios')]/span[text()= 'Cadastrar Usuário']
     Sleep  2
-    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaNome']  Makoby Lopes de
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaNome']  UsuariopAdmin
     Input Text     xpath=//input[@id='formAdicionaUsuario:matricula']  12345678910
-    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaLogin1']  makobylopes de
-    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaSenha1']  makobylopes de
-    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaConfereSenha']  makobylopes de
-    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaEmail']  makobylopes@gmail.com
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaLogin1']  UsuariopAdmin
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaSenha1']  UsuariopAdmin
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaConfereSenha']  UsuariopAdmin
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaEmail']  UsuariopAdmin@gmail.com
     Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaTelefone']  8332312526
-    Select From List 	xpath=//select[contains(@id,'formAdicionaUsuario:adicionaPerfil')]  Gestor
+    Select From List 	xpath=//select[contains(@id,'formAdicionaUsuario:adicionaPerfil')]  Usuário
     Select From List 	xpath=//select[contains(@id,'formAdicionaUsuario:adicionaEntidade')]  Secretaria de Estado da Mulher e da Diversidade Humana
     Click Element   id=formAdicionaUsuario:adicionaAtivo
     Click Element    xpath=//button[contains(@id,'formAdicionaUsuario')]/span[text()='Confirmar']
     Wait Until Page Contains    Usuário adicionado com sucesso!
-    Click Element    xpath=//input[contains(@value,'Ok')]
+    Click Element    xpath=//div[contains(@id,'confirmacaoAdicionaUser_dlg')]/div[2]/div/input
+    Click Element    xpath=//a[contains(@id,'formListaUsuarios')]/span[text()='Índice']
+
 
 Alterar_Usuario_Pelo_Admin
-    [Arguments]	${login}	${senha}
-	Input Text  id=formLogin:usuario    ${login}
-	Input Password	id=formLogin:senha	${senha}
-    Select From List 	xpath=//select[contains(@id,'formLogin:entidade')]  Secretaria de Estado da Mulher e da Diversidade Humana
-	Click Element	xpath=//input[contains(@type,'submit') and contains(@value,'Entrar')]
-	Sleep   2
+
+#    [Arguments]	${login}	${senha}
+#	Input Text  id=formLogin:usuario    ${login}
+#	Input Password	id=formLogin:senha	${senha}
+#    Select From List 	xpath=//select[contains(@id,'formLogin:entidade')]  Secretaria de Estado da Mulher e da Diversidade Humana
+#	Click Element	xpath=//input[contains(@type,'submit') and contains(@value,'Entrar')]
+#	Sleep   2
 	Wait Until Page Contains Element    xpath=//img[@src='images/bt_gerUsuarios.png']
 	Click Element  xpath=//img[@src='images/bt_gerUsuarios.png']
-    Input Text  xpath=//input[@id='formListaUsuarios:listaUsuarios:globalFilter']    Makoby Lopes de
+    Input Text  xpath=//input[@id='formListaUsuarios:listaUsuarios:globalFilter']    UsuariopAdmin
     Sleep  3
     Click Element    xpath=//button[contains(@id,'formListaUsuarios:listaUsuarios')and contains(@title,'Editar')]/span[text()='ui-button']
     Sleep   2
-    Input Text      xpath=//input[@id='editausuario:formEditarUsuario:nome']  Makoby Lindo
+    Input Text      xpath=//input[@id='editausuario:formEditarUsuario:nome']  UsuariopAdminAlterado
     Input Text     xpath=//input[@id='editausuario:formEditarUsuario:matricula']  01010101010
     Click Element    xpath=//button[contains(@id,'editausuario:formEditarUsuario')]/span[text()='Confirmar']
     Wait Until Page Contains   Informações alteradas com sucesso!
+    Click Element    xpath=//div[contains(@id,'editausuario:confirmacaoUser_dlg')]/div[2]/div/input
+    Click Element    xpath=//a[contains(@id,'formListaUsuarios')]/span[text()='Índice']
 
 
 Excluir_Usuario_Pelo_Admin
-    [Arguments]	${login}	${senha}
-	Input Text  id=formLogin:usuario    ${login}
-	Input Password	id=formLogin:senha	${senha}
-    Select From List 	xpath=//select[contains(@id,'formLogin:entidade')]  Secretaria de Estado da Mulher e da Diversidade Humana
-	Click Element	xpath=//input[contains(@type,'submit') and contains(@value,'Entrar')]
-	Sleep   2
+
+#    [Arguments]	${login}	${senha}
+#	Input Text  id=formLogin:usuario    ${login}
+#	Input Password	id=formLogin:senha	${senha}
+#    Select From List 	xpath=//select[contains(@id,'formLogin:entidade')]  Secretaria de Estado da Mulher e da Diversidade Humana
+#	Click Element	xpath=//input[contains(@type,'submit') and contains(@value,'Entrar')]
+#	Sleep   3
 	Wait Until Page Contains Element    xpath=//img[@src='images/bt_gerUsuarios.png']
 	Click Element  xpath=//img[@src='images/bt_gerUsuarios.png']
-    Input Text  xpath=//input[@id='formListaUsuarios:listaUsuarios:globalFilter']    Makoby3
+    Input Text  xpath=//input[@id='formListaUsuarios:listaUsuarios:globalFilter']    UsuariopAdminAlterado
     Sleep  3
     Click Element    xpath=//button[contains(@id,'formListaUsuarios:listaUsuarios')and contains(@title,'Remover')]
     Wait Until Page Contains Element  xpath=//span[text()='Deletar']
     Click Element  xpath=//button[contains(@id,'formListaUsuarios')]/span[text()='Sim']
     Sleep   2
     Wait Until Page Contains  Não foram encontrados registros
+    Click Element    xpath=//a[contains(@id,'formListaUsuarios')]/span[text()='Índice']
+    Click Element    xpath=//a[contains(@id,':sair')]
 
 
 Cadastrar_Usuario_Admin_Pelo_Admin
 
+    [Arguments]	${login}	${senha}
+	Input Text  id=formLogin:usuario	${login}
+	Input Password	id=formLogin:senha	${senha}
+    Select From List 	xpath=//select[contains(@id,'formLogin:entidade')]  Secretaria de Estado da Mulher e da Diversidade Humana
+	Click Element	xpath=//input[contains(@type,'submit') and contains(@value,'Entrar')]
+	Sleep   2
+	Wait Until Page Contains Element    xpath=//img[@src='images/bt_gerUsuarios.png']
+	Click Element  xpath=//img[@src='images/bt_gerUsuarios.png']
+    Click Element  xpath=//button[contains(@id,'formListaUsuarios:listaUsuarios')]/span[text()= 'Cadastrar Usuário']
+    Sleep  2
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaNome']  AdminpAdmin
+    Input Text     xpath=//input[@id='formAdicionaUsuario:matricula']  12345678910
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaLogin1']  AdminpAdmin
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaSenha1']  AdminpAdmin
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaConfereSenha']  AdminpAdmin
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaEmail']  AdminpAdmin@gmail.com
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaTelefone']  8332312526
+    Select From List 	xpath=//select[contains(@id,'formAdicionaUsuario:adicionaPerfil')]  Administrador
+    Select From List 	xpath=//select[contains(@id,'formAdicionaUsuario:adicionaEntidade')]  Secretaria de Estado da Mulher e da Diversidade Humana
+    Click Element   id=formAdicionaUsuario:adicionaAtivo
+    Click Element    xpath=//button[contains(@id,'formAdicionaUsuario')]/span[text()='Confirmar']
+    Wait Until Page Contains    Usuário adicionado com sucesso!
+    Click Element    xpath=//div[contains(@id,'confirmacaoAdicionaUser_dlg')]/div[2]/div/input
+    Click Element    xpath=//a[contains(@id,'formListaUsuarios')]/span[text()='Índice']
+    Click Element    xpath=//a[contains(@id,':sair')]
+
 
 Cadastrar_Usuario_Gestor_Pelo_Admin
+
+   [Arguments]	${login}	${senha}
+	Input Text  id=formLogin:usuario	${login}
+	Input Password	id=formLogin:senha	${senha}
+    Select From List 	xpath=//select[contains(@id,'formLogin:entidade')]  Secretaria de Estado da Mulher e da Diversidade Humana
+	Click Element	xpath=//input[contains(@type,'submit') and contains(@value,'Entrar')]
+	Sleep   2
+	Wait Until Page Contains Element    xpath=//img[@src='images/bt_gerUsuarios.png']
+	Click Element  xpath=//img[@src='images/bt_gerUsuarios.png']
+    Click Element  xpath=//button[contains(@id,'formListaUsuarios:listaUsuarios')]/span[text()= 'Cadastrar Usuário']
+    Sleep  2
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaNome']  GestorpAdmin
+    Input Text     xpath=//input[@id='formAdicionaUsuario:matricula']  12345678910
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaLogin1']  GestorpAdmin
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaSenha1']  GestorpAdmin
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaConfereSenha']  GestorpAdmin
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaEmail']  GestorpAdmin@gmail.com
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaTelefone']  8332312526
+    Select From List 	xpath=//select[contains(@id,'formAdicionaUsuario:adicionaPerfil')]  Gestor
+    Select From List 	xpath=//select[contains(@id,'formAdicionaUsuario:adicionaEntidade')]  Secretaria de Estado da Mulher e da Diversidade Humana
+    Click Element   id=formAdicionaUsuario:adicionaAtivo
+    Click Element    xpath=//button[contains(@id,'formAdicionaUsuario')]/span[text()='Confirmar']
+    Wait Until Page Contains    Usuário adicionado com sucesso!
+    Click Element    xpath=//div[contains(@id,'confirmacaoAdicionaUser_dlg')]/div[2]/div/input
+    Click Element    xpath=//a[contains(@id,'formListaUsuarios')]/span[text()='Índice']
+    Click Element    xpath=//a[contains(@id,':sair')]
 
 
 Cadastrar_Usuario_Comum_Pelo_Admin
 
+   [Arguments]	${login}	${senha}
+	Input Text  id=formLogin:usuario	${login}
+	Input Password	id=formLogin:senha	${senha}
+    Select From List 	xpath=//select[contains(@id,'formLogin:entidade')]  Secretaria de Estado da Mulher e da Diversidade Humana
+	Click Element	xpath=//input[contains(@type,'submit') and contains(@value,'Entrar')]
+	Sleep   2
+	Wait Until Page Contains Element    xpath=//img[@src='images/bt_gerUsuarios.png']
+	Click Element  xpath=//img[@src='images/bt_gerUsuarios.png']
+    Click Element  xpath=//button[contains(@id,'formListaUsuarios:listaUsuarios')]/span[text()= 'Cadastrar Usuário']
+    Sleep  2
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaNome']  UsuariopAdmin
+    Input Text     xpath=//input[@id='formAdicionaUsuario:matricula']  12345678910
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaLogin1']  UsuariopAdmin
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaSenha1']  UsuariopAdmin
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaConfereSenha']  UsuariopAdmin
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaEmail']  UsuariopAdmin@gmail.com
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaTelefone']  8332312526
+    Select From List 	xpath=//select[contains(@id,'formAdicionaUsuario:adicionaPerfil')]  Usuário
+    Select From List 	xpath=//select[contains(@id,'formAdicionaUsuario:adicionaEntidade')]  Secretaria de Estado da Mulher e da Diversidade Humana
+    Click Element   id=formAdicionaUsuario:adicionaAtivo
+    Click Element    xpath=//button[contains(@id,'formAdicionaUsuario')]/span[text()='Confirmar']
+    Wait Until Page Contains    Usuário adicionado com sucesso!
+    Click Element    xpath=//div[contains(@id,'confirmacaoAdicionaUser_dlg')]/div[2]/div/input
+    Click Element    xpath=//a[contains(@id,'formListaUsuarios')]/span[text()='Índice']
+    Click Element    xpath=//a[contains(@id,':sair')]
 
 Cadastrar_Usuario_Existente_Pelo_Admin
 
+    [Arguments]	${login}	${senha}
+	Input Text  id=formLogin:usuario	${login}
+	Input Password	id=formLogin:senha	${senha}
+    Select From List 	xpath=//select[contains(@id,'formLogin:entidade')]  Secretaria de Estado da Mulher e da Diversidade Humana
+	Click Element	xpath=//input[contains(@type,'submit') and contains(@value,'Entrar')]
+	Sleep   2
+	Wait Until Page Contains Element    xpath=//img[@src='images/bt_gerUsuarios.png']
+	Click Element  xpath=//img[@src='images/bt_gerUsuarios.png']
+    Click Element  xpath=//button[contains(@id,'formListaUsuarios:listaUsuarios')]/span[text()= 'Cadastrar Usuário']
+    Sleep  2
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaNome']  UsuariopAdmin
+    Input Text     xpath=//input[@id='formAdicionaUsuario:matricula']  12345678910
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaLogin1']  UsuariopAdmin
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaSenha1']  UsuariopAdmin
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaConfereSenha']  UsuariopAdmin
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaEmail']  UsuariopAdmin@gmail.com
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaTelefone']  8332312526
+    Select From List 	xpath=//select[contains(@id,'formAdicionaUsuario:adicionaPerfil')]  Usuário
+    Select From List 	xpath=//select[contains(@id,'formAdicionaUsuario:adicionaEntidade')]  Secretaria de Estado da Mulher e da Diversidade Humana
+    Click Element   id=formAdicionaUsuario:adicionaAtivo
+    Click Element    xpath=//button[contains(@id,'formAdicionaUsuario')]/span[text()='Confirmar']
+    Wait Until Page Contains    Usuário já existe no serviço selecionado
+    Click Element    xpath=//button[contains(@id,'formAdicionaUsuario')]/span[text()='Cancelar']
+    Click Element    xpath=//a[contains(@id,'formListaUsuarios')]/span[text()='Índice']
+    Click Element    xpath=//a[contains(@id,':sair')]
 
-Cadastrar_Usuario_Com_Tipo_Diferente_Pelo_Admin
-    Click Link  xpath=//a[text()='Sair do Sistema']
+
+#Cadastrar_Usuario_Com_Tipo_Diferente_Pelo_Admin
+
 
 
 Cadastrar_Usuario_Pelo_Gestor
 
+    [Arguments]	${login}	${senha}
+	Input Text  id=formLogin:usuario	${login}
+	Input Password	id=formLogin:senha	${senha}
+    Select From List 	xpath=//select[contains(@id,'formLogin:entidade')]  Secretaria de Estado da Mulher e da Diversidade Humana
+	Click Element	xpath=//input[contains(@type,'submit') and contains(@value,'Entrar')]
+	Sleep   2
+	Wait Until Page Contains Element    xpath=//img[@src='images/bt_gerUsuarios.png']
+	Click Element  xpath=//img[@src='images/bt_gerUsuarios.png']
+    Click Element  xpath=//button[contains(@id,'formListaUsuarios:listaUsuarios')]/span[text()= 'Cadastrar Usuário']
+    Sleep  2
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaNome']  UsuariopGestor
+    Input Text     xpath=//input[@id='formAdicionaUsuario:matricula']  12345678910
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaLogin1']  UsuariopGestor
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaSenha1']  UsuariopGestor
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaConfereSenha']  UsuariopGestor
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaEmail']  UsuariopGestor@gmail.com
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaTelefone']  8332312526
+    Select From List 	xpath=//select[contains(@id,'formAdicionaUsuario:adicionaPerfil')]  Usuário
+    Select From List 	xpath=//select[contains(@id,'formAdicionaUsuario:adicionaEntidade')]  Secretaria de Estado da Mulher e da Diversidade Humana
+    Click Element   id=formAdicionaUsuario:adicionaAtivo
+    Click Element    xpath=//button[contains(@id,'formAdicionaUsuario')]/span[text()='Confirmar']
+    Wait Until Page Contains    Usuário adicionado com sucesso!
+    Click Element    xpath=//div[contains(@id,'confirmacaoAdicionaUser_dlg')]/div[2]/div/input
+    Click Element    xpath=//a[contains(@id,'formListaUsuarios')]/span[text()='Índice']
+
+# Rapaz, existe algum calculo que gere valores de quanto esta defasado nosso salario? Sabe dizer? Se nao eciste como nós poderemos usar esse
+# argumeto para falar com KROL e oferecer uma sugestao de valor pra gratificação?
 
 Alterar_Usuario_Pelo_Gestor
+
+#    [Arguments]	${login}	${senha}
+#	Input Text  id=formLogin:usuario    ${login}
+#	Input Password	id=formLogin:senha	${senha}
+#    Select From List 	xpath=//select[contains(@id,'formLogin:entidade')]  Secretaria de Estado da Mulher e da Diversidade Humana
+#	Click Element	xpath=//input[contains(@type,'submit') and contains(@value,'Entrar')]
+#	Sleep   2
+	Wait Until Page Contains Element    xpath=//img[@src='images/bt_gerUsuarios.png']
+	Click Element  xpath=//img[@src='images/bt_gerUsuarios.png']
+    Input Text  xpath=//input[@id='formListaUsuarios:listaUsuarios:globalFilter']    UsuariopGestor
+    Sleep  3
+    Click Element    xpath=//button[contains(@id,'formListaUsuarios:listaUsuarios')and contains(@title,'Editar')]/span[text()='ui-button']
+    Sleep   2
+    Input Text      xpath=//input[@id='editausuario:formEditarUsuario:nome']  UsuariopGestorAlterado
+    Input Text     xpath=//input[@id='editausuario:formEditarUsuario:matricula']  01010101010
+    Click Element    xpath=//button[contains(@id,'editausuario:formEditarUsuario')]/span[text()='Confirmar']
+    Wait Until Page Contains   Informações alteradas com sucesso!
+    Click Element    xpath=//div[contains(@id,'editausuario:confirmacaoUser_dlg')]/div[2]/div/input
+    Click Element    xpath=//a[contains(@id,'formListaUsuarios')]/span[text()='Índice']
 
 
 Excluir_Usuario_Pelo_Gestor
 
+#    [Arguments]	${login}	${senha}
+#	Input Text  id=formLogin:usuario    ${login}
+#	Input Password	id=formLogin:senha	${senha}
+#    Select From List 	xpath=//select[contains(@id,'formLogin:entidade')]  Secretaria de Estado da Mulher e da Diversidade Humana
+#	Click Element	xpath=//input[contains(@type,'submit') and contains(@value,'Entrar')]
+#	Sleep   3
+	Wait Until Page Contains Element    xpath=//img[@src='images/bt_gerUsuarios.png']
+	Click Element  xpath=//img[@src='images/bt_gerUsuarios.png']
+    Input Text  xpath=//input[@id='formListaUsuarios:listaUsuarios:globalFilter']    UsuariopGestorAlterado
+    Sleep  3
+    Click Element    xpath=//button[contains(@id,'formListaUsuarios:listaUsuarios')and contains(@title,'Remover')]
+    Wait Until Page Contains Element  xpath=//span[text()='Deletar']
+    Click Element  xpath=//button[contains(@id,'formListaUsuarios')]/span[text()='Sim']
+    Sleep   2
+    Wait Until Page Contains  Não foram encontrados registros
+    Click Element    xpath=//a[contains(@id,'formListaUsuarios')]/span[text()='Índice']
+    Click Element    xpath=//a[contains(@id,':sair')]
+
 
 Cadastrar_Usuario_Admin_Pelo_Gestor
 
+    [Arguments]	${login}	${senha}
+	Input Text  id=formLogin:usuario	${login}
+	Input Password	id=formLogin:senha	${senha}
+    Select From List 	xpath=//select[contains(@id,'formLogin:entidade')]  Secretaria de Estado da Mulher e da Diversidade Humana
+	Click Element	xpath=//input[contains(@type,'submit') and contains(@value,'Entrar')]
+	Sleep   2
+	Wait Until Page Contains Element    xpath=//img[@src='images/bt_gerUsuarios.png']
+	Click Element  xpath=//img[@src='images/bt_gerUsuarios.png']
+    Click Element  xpath=//button[contains(@id,'formListaUsuarios:listaUsuarios')]/span[text()= 'Cadastrar Usuário']
+    Sleep  2
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaNome']  AdminpGestor
+    Input Text     xpath=//input[@id='formAdicionaUsuario:matricula']  12345678910
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaLogin1']  AdminpGestor
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaSenha1']  AdminpGestor
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaConfereSenha']  AdminpGestor
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaEmail']  AdminpGestor@gmail.com
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaTelefone']  8332312526
+    Page Should Not Contain  xpath=//select[contains(@id,'formAdicionaUsuario:adicionaPerfil')]   Administrador
+    Click Element    xpath=//button[contains(@id,'formAdicionaUsuario')]/span[text()='Cancelar']
+    Click Element    xpath=//a[contains(@id,'formListaUsuarios')]/span[text()='Índice']
+    Click Element    xpath=//a[contains(@id,':sair')]
 
 Cadastrar_Usuario_Gestor_Pelo_Gestor
 
+    [Arguments]	${login}	${senha}
+	Input Text  id=formLogin:usuario	${login}
+	Input Password	id=formLogin:senha	${senha}
+    Select From List 	xpath=//select[contains(@id,'formLogin:entidade')]  Secretaria de Estado da Mulher e da Diversidade Humana
+	Click Element	xpath=//input[contains(@type,'submit') and contains(@value,'Entrar')]
+	Sleep   2
+	Wait Until Page Contains Element    xpath=//img[@src='images/bt_gerUsuarios.png']
+	Click Element  xpath=//img[@src='images/bt_gerUsuarios.png']
+    Click Element  xpath=//button[contains(@id,'formListaUsuarios:listaUsuarios')]/span[text()= 'Cadastrar Usuário']
+    Sleep  2
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaNome']  GestorpGestor
+    Input Text     xpath=//input[@id='formAdicionaUsuario:matricula']  12345678910
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaLogin1']  GestorpGestor
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaSenha1']  GestorpGestor
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaConfereSenha']  GestorpGestor
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaEmail']  GestorpGestor@gmail.com
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaTelefone']  8332312526
+    Select From List 	xpath=//select[contains(@id,'formAdicionaUsuario:adicionaPerfil')]  gestor
+    Select From List 	xpath=//select[contains(@id,'formAdicionaUsuario:adicionaEntidade')]  Secretaria de Estado da Mulher e da Diversidade Humana
+    Click Element   id=formAdicionaUsuario:adicionaAtivo
+    Click Element    xpath=//button[contains(@id,'formAdicionaUsuario')]/span[text()='Confirmar']
+    Wait Until Page Contains    Usuário adicionado com sucesso!
+    Click Element    xpath=//div[contains(@id,'confirmacaoAdicionaUser_dlg')]/div[2]/div/input
+    Click Element    xpath=//a[contains(@id,'formListaUsuarios')]/span[text()='Índice']
 
 Cadastrar_Usuario_Comum_Pelo_Gestor
 
+  [Arguments]	${login}	${senha}
+	Input Text  id=formLogin:usuario	${login}
+	Input Password	id=formLogin:senha	${senha}
+    Select From List 	xpath=//select[contains(@id,'formLogin:entidade')]  Secretaria de Estado da Mulher e da Diversidade Humana
+	Click Element	xpath=//input[contains(@type,'submit') and contains(@value,'Entrar')]
+	Sleep   2
+	Wait Until Page Contains Element    xpath=//img[@src='images/bt_gerUsuarios.png']
+	Click Element  xpath=//img[@src='images/bt_gerUsuarios.png']
+    Click Element  xpath=//button[contains(@id,'formListaUsuarios:listaUsuarios')]/span[text()= 'Cadastrar Usuário']
+    Sleep  2
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaNome']  GestorpGestor
+    Input Text     xpath=//input[@id='formAdicionaUsuario:matricula']  12345678910
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaLogin1']  GestorpGestor
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaSenha1']  GestorpGestor
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaConfereSenha']  GestorpGestor
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaEmail']  GestorpGestor@gmail.com
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaTelefone']  8332312526
+    Select From List 	xpath=//select[contains(@id,'formAdicionaUsuario:adicionaPerfil')]  Usuário
+    Select From List 	xpath=//select[contains(@id,'formAdicionaUsuario:adicionaEntidade')]  Secretaria de Estado da Mulher e da Diversidade Humana
+    Click Element   id=formAdicionaUsuario:adicionaAtivo
+    Click Element    xpath=//button[contains(@id,'formAdicionaUsuario')]/span[text()='Confirmar']
+    Wait Until Page Contains    Usuário adicionado com sucesso!
+    Click Element    xpath=//div[contains(@id,'confirmacaoAdicionaUser_dlg')]/div[2]/div/input
+    Click Element    xpath=//a[contains(@id,'formListaUsuarios')]/span[text()='Índice']
 
 Cadastrar_Usuario_Existente_Pelo_Gestor
 
+    [Arguments]	${login}	${senha}
+	Input Text  id=formLogin:usuario	${login}
+	Input Password	id=formLogin:senha	${senha}
+    Select From List 	xpath=//select[contains(@id,'formLogin:entidade')]  Secretaria de Estado da Mulher e da Diversidade Humana
+	Click Element	xpath=//input[contains(@type,'submit') and contains(@value,'Entrar')]
+	Sleep   2
+	Wait Until Page Contains Element    xpath=//img[@src='images/bt_gerUsuarios.png']
+	Click Element  xpath=//img[@src='images/bt_gerUsuarios.png']
+    Click Element  xpath=//button[contains(@id,'formListaUsuarios:listaUsuarios')]/span[text()= 'Cadastrar Usuário']
+    Sleep  2
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaNome']  UsuariopGestor
+    Input Text     xpath=//input[@id='formAdicionaUsuario:matricula']  12345678910
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaLogin1']  UsuariopGestor
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaSenha1']  UsuariopGestor
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaConfereSenha']  UsuariopGestor
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaEmail']  UsuariopGestor@gmail.com
+    Input Text     xpath=//input[@id='formAdicionaUsuario:adicionaTelefone']  8332312526
+    Select From List 	xpath=//select[contains(@id,'formAdicionaUsuario:adicionaPerfil')]  Usuário
+    Select From List 	xpath=//select[contains(@id,'formAdicionaUsuario:adicionaEntidade')]  Secretaria de Estado da Mulher e da Diversidade Humana
+    Click Element   id=formAdicionaUsuario:adicionaAtivo
+    Click Element    xpath=//button[contains(@id,'formAdicionaUsuario')]/span[text()='Confirmar']
+    Wait Until Page Contains    Usuário já existe no serviço selecionado
+    Click Element    xpath=//button[contains(@id,'formAdicionaUsuario')]/span[text()='Cancelar']
+    Click Element    xpath=//a[contains(@id,'formListaUsuarios')]/span[text()='Índice']
+    Click Element    xpath=//a[contains(@id,':sair')]
 
-Cadastrar_Usuario_Com_Tipo_Diferente_Pelo_Gestor
 
-    Click Link  xpath=//a[text()='Sair do Sistema']
+#Cadastrar_Usuario_Com_Tipo_Diferente_Pelo_Gestor
+
+#    Click Link  xpath=//a[text()='Sair do Sistema']
 Sem_Permissao_de_Cadastrar_Usuario_Pelo_Usuario_Comum
     Click Link  xpath=//a[text()='Sair do Sistema']
+
+
+Acesso_Perfil_Admin
+    [Arguments]	${login}	${senha}
+	Input Text  id=formLogin:usuario	${login}
+	Input Password	id=formLogin:senha	${senha}
+    Select From List 	xpath=//select[contains(@id,'formLogin:entidade')]  Secretaria de Estado da Mulher e da Diversidade Humana
+	Click Element	xpath=//input[contains(@type,'submit') and contains(@value,'Entrar')]
+	Sleep   2
+	Wait Until Page Contains Element    xpath=//img[@src='images/bt_vitimas.png']
+	Wait Until Page Contains Element    xpath=//img[@src='images/bt_gerenciarEntidades.png']
+	Wait Until Page Contains Element    xpath=//img[@src='images/bt_gerUsuarios.png']
+	Wait Until Page Contains Element    xpath=//img[@src='images/bt_relatorios.png']
+	Wait Until Page Contains Element    xpath=//img[@src='images/bt_opcoes.png']
+	Click Element    xpath=//a[contains(@id,':sair')]
 
 Acesso_Perfil_Gestor
     [Arguments]	${login}	${senha}
@@ -173,7 +468,8 @@ Acesso_Perfil_Usuario
 	Click Element	xpath=//input[contains(@value,'Entrar')]
 	Wait Until Page Contains Element    xpath=//img[@src='images/bt_vitimas.png']
 	Page Should Not Contain Element    xpath=//img[@src='images/bt_gerenciarEntidades.png']
-	Page Should Not Contain Element  xpath=//img[@src='images/bt_relatorios.png']
+	Page Should Not Contain Element    xpath=//img[@src='images/bt_gerUsuarios.png']
+	Page Should Not Contain Element    xpath=//img[@src='images/bt_relatorios.png']
 	Page Should Not Contain Element    xpath=//img[@src='images/bt_opcoes.png']
 	Click Link  xpath=//a[text()='Sair do Sistema']
 
